@@ -97,3 +97,45 @@
     t_onReady(init);
 
 })();
+
+// Header
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.custom-header');
+    const trigger = document.querySelector('.custom-header__trigger');
+    let lastScrollY = window.scrollY;
+
+    function updateHeaderVisibility() {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY <= 0) {
+            header.classList.add('visible');
+        } else if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            header.classList.remove('visible');
+        } else if (currentScrollY < lastScrollY) {
+            header.classList.add('visible');
+        }
+
+        lastScrollY = currentScrollY;
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateHeaderVisibility();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    trigger.addEventListener('mouseenter', function() {
+        header.classList.add('visible');
+    });
+
+    header.addEventListener('mouseenter', function() {
+        header.classList.add('visible');
+    });
+
+    header.classList.add('visible');
+});

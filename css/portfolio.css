@@ -605,7 +605,7 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(0, 0, 0, 0.98);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-divider);
     transition: var(--transition-smooth);
@@ -2336,4 +2336,126 @@
     100% {
         transform: rotate(-360deg);
     }
+}
+
+/* Header container */
+.custom-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    box-sizing: border-box;
+    z-index: 9999;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+.custom-header.visible {
+    transform: translateY(0);
+}
+
+/* Logo styles */
+.custom-header__logo {
+    display: flex;
+    align-items: center;
+}
+
+.custom-header__logo img {
+    max-width: 200px;
+    height: auto;
+}
+
+/* Navigation buttons */
+.custom-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.custom-header__btn {
+    padding: 12px 24px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.custom-header__btn--portfolio {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.custom-header__btn--portfolio:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.custom-header__btn--cta {
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.custom-header__btn--cta:hover {
+    background-color: #e0e0e0;
+    border-color: #e0e0e0;
+}
+
+/* Hover trigger area */
+.custom-header__trigger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 9998;
+}
+
+.custom-header__trigger:hover ~ .custom-header,
+.custom-header:hover {
+    transform: translateY(0);
+}
+
+/* Hide original Tilda header elements to avoid duplication */
+#rec1813650891 {
+    display: none !important;
+}
+
+/* Contacts T551 */
+.t551__title{margin-bottom:45px; ; font-size: 15}
+#allrecords .t551 ul.t-sociallinks__wrapper{margin-bottom:0;padding-left:0;list-style:none; font-size: 20}
+@media screen and (max-width:960px){
+  .t551__contacts{overflow:hidden;text-overflow:ellipsis; font-size: 25}
+}
+
+#rec1813650871 {padding-top:150px; padding-bottom:150px; background-color:#1c1c1c}
+#rec1813650871 .t551__title{color:#ffffff}
+#rec1813650871 .t551__contacts{color:#ffffff}
+#rec1813650871 .t551__address{color:#ffffff}
+#rec1813650881 .t046__text{color:#cfcfcf}
+
+.__cf_email__ {
+    color: white;
+    font-size: 25;
+    text-decoration: none;
+}
+
+.t551__contactsT-titleT-title_xxs {
+    color: white;
+    font-size: 25;
+}
+
+#rec1813650871 {
+    color: white;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    font-size: 35px;
 }

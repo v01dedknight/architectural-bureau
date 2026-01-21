@@ -1,4 +1,4 @@
-/* -------------------- Font Definitions -------------------- */
+/* Font Definitions */
 @font-face {
   font-family: 'TildaSans';
   font-style: normal;
@@ -84,7 +84,7 @@
        url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Black.woff') format('woff');
 }
 
-/* -------------------- Base Reset & Global Styles -------------------- */
+/* Base Reset & Global Styles */
 *,*:before,*:after{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}
 div,span,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,code,img,b,u,i,center,table,tr,th,td,video{margin:0;padding:0;border:0}
 sup{line-height:0;font-size:smaller;vertical-align:super}
@@ -97,7 +97,7 @@ sub{line-height:0;font-size:smaller;vertical-align:sub}
 .t-body{margin:0px}
 #allrecords,body{background-color:none}
 #allrecords{-webkit-font-smoothing:antialiased}
-#allrecords a{color:#ff8562;text-decoration:none}
+#allrecords a{color:#ffffff;text-decoration:dashed}
 #allrecords a,#allrecords button,#allrecords .t-radio,#allrecords .t-checkbox,#allrecords .t-img-select{outline:none}
 #allrecords a:focus-visible,#allrecords button:focus-visible,#allrecords .t-focusable,#allrecords .t-focusable .t-btn,#allrecords .t-focusable .t-btntext,#allrecords .t-img-select:focus-visible+.t-img-select__indicator,#allrecords .t-img-select:focus-visible+.t-img-select__indicator:after,#allrecords .t-radio:focus-visible+.t-radio__indicator,#allrecords .t-checkbox:focus-visible+.t-checkbox__indicator{outline-color:#2015FF;outline-offset:4px;outline-style:auto}
 #allrecords .t-descr a:focus-visible,#allrecords .t-sociallinks a:focus-visible,#allrecords .ya-share2__link:focus-visible{outline-offset:2px}
@@ -121,7 +121,7 @@ img:not([src]){visibility:hidden}
 .r_showed{opacity:1}
 @media screen and (max-width:1024px){a:active,button:active{-webkit-tap-highlight-color:rgba(255,255,255,.1)}}
 
-/* -------------------- Grid System -------------------- */
+/* Grid System */
 .t-container{margin-left:auto;margin-right:auto;width:100%;max-width:1200px;padding:0}
 .t-container.flexx{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex}
 .t-container_flex{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex}
@@ -231,7 +231,7 @@ img:not([src]){visibility:hidden}
   .t-prefix_1,.t-prefix_2,.t-prefix_3,.t-prefix_4,.t-prefix_5,.t-prefix_6,.t-prefix_7,.t-prefix_8,.t-prefix_9,.t-prefix_10,.t-prefix_11,.t-prefix_12{padding-left:none}
 }
 
-/* -------------------- Typography -------------------- */
+/* Typography */
 .t-text{font-family:'TildaSans',Arial,sans-serif;font-weight:300;color:#000000}
 .t-text_xs{font-size:15px;line-height:1.55}
 .t-text_sm{font-size:18px;line-height:1.55}
@@ -281,7 +281,7 @@ img:not([src]){visibility:hidden}
   .t-title_xl{font-size:30px}
 }
 
-/* -------------------- Buttons -------------------- */
+/* Buttons */
 .t-btn{display:inline-block;font-family:'TildaSans',Arial,sans-serif;border:0 none;text-align:center;white-space:nowrap;vertical-align:middle;font-weight:700;background-image:none;cursor:pointer;-webkit-appearance:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 .t-btn td{vertical-align:middle}
 .t-btn_sending{opacity:.5}
@@ -331,7 +331,7 @@ img:not([src]){visibility:hidden}
   .t-btnflex_sm,.t-btn.t-btnflex_sm,.t-submit.t-btnflex_sm{--height:50px}
 }
 
-/* -------------------- Layout Utilities -------------------- */
+/* Layout Utilities */
 .t-align_center{text-align:center}
 .t-margin_auto{margin-left:auto;margin-right:auto}
 .t-valign_middle{vertical-align:middle}
@@ -362,7 +362,7 @@ img:not([src]){visibility:hidden}
   .t-rec_pb_180{padding-bottom:120px!important}
 }
 
-/* -------------------- Menu Mobile -------------------- */
+/* Menu Mobile */
 .t-menusub__menu{display:none}
 .t-menuburger{position:relative;flex-shrink:0;width:28px;height:20px;padding:0;border:none;background-color:transparent;outline:none;-webkit-transform:rotate(0deg);transform:rotate(0deg);transition:transform .5s ease-in-out;cursor:pointer;z-index:999}
 .t-menuburger span{display:block;position:absolute;width:100%;opacity:1;left:0;-webkit-transform:rotate(0deg);transform:rotate(0deg);transition:.25s ease-in-out;height:3px;background-color:#000}
@@ -435,7 +435,7 @@ img:not([src]){visibility:hidden}
   #rec1813650891 .t-menuburger{-webkit-order:1;-ms-flex-order:1;order:1}
 }
 
-/* -------------------- Menu Block T446 -------------------- */
+/* Menu Block T446 */
 .t446__leftmenuwrapper,.t446__rightmenuwrapper,.t446__additionalwrapper{display:inline-table;height:100%;vertical-align:middle}
 .t446__leftmenuwrapper .t446__list,.t446__rightmenuwrapper .t446__list{display:table-cell;vertical-align:middle}
 .t446__burgerwrapper{display:table-cell;vertical-align:middle;padding-left:40px}
@@ -558,7 +558,7 @@ img:not([src]){visibility:hidden}
 .t446__transp-black .ya-share2__container_size_m .ya-share2__item_service_twitter .ya-share2__icon{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12.7368 11.5046L17.5763 6H16.4295L12.2273 10.7796L8.87103 6H5L10.0753 13.2276L5 19H6.14688L10.5845 13.9526L14.129 19H18L12.7368 11.5046ZM11.1659 13.2912L10.6517 12.5715L6.56012 6.8448H8.32166L11.6236 11.4665L12.1379 12.1862L16.43 18.1936H14.6685L11.1659 13.2912Z' fill='black'/%3E%3C/svg%3E");background-size:24px;background-position:center}
 .t446__transp-black .ya-share2__container_size_m .ya-share2__item_service_odnoklassniki .ya-share2__icon{background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNTBweCIgaGVpZ2h0PSIxNTBweCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE1MCAxNTAiIHhtbDpzcGFjZT0icHJlc2VydmUiPjx0aXRsZT5TaGFwZTwvdGl0bGU+PGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+PGcgaWQ9IldlbGNvbWUiPjxwYXRoIGlkPSJTaGFwZSIgZmlsbD0iIzIyMjIyMiIgZD0iTTc0Ljk5Nyw0Ni4wMTFjLTQuOTAzLDAuMDA2LTguODc1LDMuOTc5LTguODgzLDguODgzYzAsNC44OTQsMy45ODUsOC44NzksOC44ODMsOC44NzljNC45MDMtMC4wMDgsOC44NzUtMy45NzksOC44OC04Ljg3OUM4My44NzksNDkuOTg5LDc5LjksNDYuMDE3LDc0Ljk5Nyw0Ni4wMTFMNzQuOTk3LDQ2LjAxMXogTTc0Ljk5Nyw3Ni4zMzhjLTExLjgzOC0wLjAxLTIxLjQzNy05LjYwNi0yMS40NDgtMjEuNDQ0YzAuMDA4LTExLjg0Niw5LjYwNC0yMS40NDIsMjEuNDQ4LTIxLjQ1NWMxMS44NDUsMC4wMSwyMS40NTEsOS42MDksMjEuNDU2LDIxLjQ1NUM5Ni40MzgsNjYuNzM0LDg2LjgzOCw3Ni4zMyw3NC45OTcsNzYuMzM4TDc0Ljk5Nyw3Ni4zMzh6IE02Ni4zMiw5My44MzZjLTQuNDEyLTEuMDAyLTguNjI0LTIuNzQ4LTEyLjQ1NS01LjE1NGMtMi45MzktMS44NS0zLjgyMy01LjczNC0xLjk3My04LjY2OGMxLjg0OC0yLjk0MSw1LjcyOC0zLjgyMiw4LjY2Ni0xLjk3NWM4LjgzNCw1LjUyMywyMC4wNTIsNS41MjMsMjguODg2LDBjMS45MDEtMS4xOTUsNC4yOTctMS4yODcsNi4yODQtMC4yNDJjMS45ODQsMS4wNDksMy4yNiwzLjA3OCwzLjM0Miw1LjMyNGMwLjA4NywyLjI0LTEuMDI3LDQuMzYzLTIuOTMsNS41NjFjLTMuODM0LDIuNDA2LTguMDQ5LDQuMTQ4LTEyLjQ1Nyw1LjE1NGwxMS45OTQsMTJjMi40NTEsMi40NTcsMi40NDYsNi40MzYtMC4wMTEsOC44OTNjLTIuNDU2LDIuNDQ1LTYuNDM0LDIuNDQ1LTguODg2LTAuMDEybC0xMS43NzktMTEuNzg5bC0xMS43ODUsMTEuNzg5Yy0yLjQ1NSwyLjQ1Ny02LjQzNiwyLjQ1Ny04Ljg4OSwwYy0yLjQ1NC0yLjQ1NS0yLjQ1NC02LjQzNCwwLTguODkxTDY2LjMyLDkzLjgzNkw2Ni4zMiw5My44MzZ6Ii8+PC9nPjwvc3ZnPg==');background-size:28px 28px;background-position:-2px}
 
-/* -------------------- Cover Section T001 -------------------- */
+/* Cover Section T001 */
 .t001__wrapper{padding-top:42px;padding-bottom:42px}
 .t001__uptitle{padding-top:30px;padding-bottom:60px;color:#fff}
 .t001__title{padding:24px 0 38px;letter-spacing:.5px;color:#fff}
@@ -579,7 +579,7 @@ img:not([src]){visibility:hidden}
   .t001__button{width:100%;max-width:320px}
 }
 
-/* -------------------- Cover Block T18 -------------------- */
+/* Cover Block T18 */
 .t-cover{background-attachment:fixed;background-color:#000;background-position:50%;background-repeat:no-repeat;background-size:cover;height:700px;overflow:hidden;position:relative;text-align:center;vertical-align:middle;width:100%}
 .t-cover.t-cover__transparent{background-color:transparent}
 .t-cover__carrier{background-attachment:fixed;background-position:50%;background-repeat:no-repeat;background-size:cover;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;height:700px;position:relative;text-align:center;-moz-transform:unset;vertical-align:middle;width:100%}
@@ -617,12 +617,12 @@ img:not([src]){visibility:hidden}
 .t-cover__video__wrapper{position:relative;width:100%}
 .t-cover__video__wrapper iframe{left:0;position:absolute;top:0}
 
-/* -------------------- About Section T468 -------------------- */
+/* About Section T468 */
 .t468__title,.t468__uptitle{margin-bottom:40px;color:#fff}
 .t468__descr{color:#fff}
 .t468 .t-btn,.t468 .t-btntext{margin-top:60px}
 
-/* -------------------- Cards Component -------------------- */
+/* Cards Component */
 #allrecords ul.t-cards__container{list-style:none;margin-bottom:0;padding-left:0}
 #allrecords .t-cards__container:not(.t-cards__container_focus) .t-cards__link,#allrecords .t-cards__link_second,.t-cards__col:focus-within .t-cards__link:focus,.t-cards__container:not(.t-cards__container_focus) .t-cards__col:focus-within{outline:none}
 #allrecords .t-cards__col .t-cards__link{color:inherit!important}
@@ -631,7 +631,7 @@ ul.t-card__container li ul{list-style-type:disc}
 #allrecords .t-card__col .t-card__link:not(.t-btn,.t-btntext,.t-submit,.t-btnflex),#allrecords .t-card__col .t-card__link_second:not(.t-btn,.t-btntext,.t-submit,.t-btnflex){color:inherit!important;outline:none}
 #allrecords .t-focusable,#allrecords .t-focusable .t-btn,#allrecords .t-focusable .t-btntext{position:relative}
 
-/* -------------------- Tiles Grid T686 -------------------- */
+/* Tiles Grid T686 */
 .t686 .t-section__bottomwrapper{margin-top:105px}
 .t686__container{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .t686__container li ul{list-style-type:disc}
@@ -697,7 +697,7 @@ ul.t-card__container li ul{list-style-type:disc}
   .t686 .t686__title_small{font-size:21px}
 }
 
-/* -------------------- Large Card T336 -------------------- */
+/* Large Card T336 */
 .t336 .t336__block{overflow:hidden}
 .t336 .t336__table{position:relative;display:table;vertical-align:middle;width:100%;height:650px;overflow:hidden;background-color:#000}
 .t336 .t336__bg{position:absolute;top:0;right:0;bottom:0;left:0;background-position:center center;background-repeat:no-repeat;background-size:cover}
@@ -733,12 +733,12 @@ ul.t-card__container li ul{list-style-type:disc}
   .t336 .t336__show_hover .t336__cell .t336__overlay,.t336 .t336__show_hover .t336__cell .t336__textwrapper{opacity:1}
 }
 
-/* -------------------- Button T400 -------------------- */
+/* Button T400 */
 .t400__off:not([data-record-type='396'],[data-parenttplid='396']){display:none!important}
 .t400__off[data-record-type='396'],.t400__off[data-parenttplid='396']{opacity:0!important;height:0!important;max-height:0!important;min-height:0!important;pointer-events:none!important;overflow:hidden!important;padding-top:0!important;padding-bottom:0!important}
 .t400{width:100%;padding:0 20px;display:flex;justify-content:center;box-sizing:border-box}
 
-/* -------------------- Contacts T551 -------------------- */
+/* Contacts T551 */
 .t551__title{margin-bottom:45px}
 .t551__address{margin-top:45px}
 .t551 .t-sociallinks{margin-top:40px}
@@ -749,10 +749,10 @@ ul.t-card__container li ul{list-style-type:disc}
   .t551__contacts{overflow:hidden;text-overflow:ellipsis}
 }
 
-/* -------------------- Footer T046 -------------------- */
+/* Footer T046 */
 .t046__text{text-align:center;padding-top:10px;padding-bottom:4px}
 
-/* -------------------- Tilda Label -------------------- */
+/* Tilda Label */
 .t-tildalabel{background-color:#000;color:#fff;width:100%;height:70px;font-family:Arial;font-size:14px}
 .t-tildalabel:hover .t-tildalabel__wrapper{opacity:1}
 .t-tildalabel-free{padding:35px 0px 45px;height:auto;text-align:center}
@@ -766,7 +766,7 @@ ul.t-card__container li ul{list-style-type:disc}
   .t-tildalabel-free__main{opacity:.7}
 }
 
-/* -------------------- Animations -------------------- */
+/* Animations */
 .t396 .t-animate[data-animate-style=fadein],.t396 .t-animate[data-animate-style=fadeindown],.t396 .t-animate[data-animate-style=fadeinleft],.t396 .t-animate[data-animate-style=fadeinright],.t396 .t-animate[data-animate-style=fadeinup],.t396 .t-animate[data-animate-style=zoomin],.t396 .t-animate[data-animate-style=zoomout]{opacity:0}
 @media screen and (min-width:980px){
   .t-animate[data-animate-style=fadein],.t-animate[data-animate-style=fadeindown],.t-animate[data-animate-style=fadeinleft],.t-animate[data-animate-style=fadeinright],.t-animate[data-animate-style=fadeinup],.t-animate[data-animate-style=zoomin],.t-animate[data-animate-style=zoomout]{-webkit-backface-visibility:hidden;backface-visibility:hidden;opacity:0;transition-duration:1s;transition-property:opacity,-webkit-transform;transition-property:opacity,transform;transition-property:opacity,transform,-webkit-transform;transition-timing-function:cubic-bezier(.19,1,.22,1)}
@@ -791,7 +791,7 @@ ul.t-card__container li ul{list-style-type:disc}
 .t-animate-for-wrapper .t-animate:not(.t-animate_started){opacity:0!important;transition-duration:0s!important}
 .t-animate__overflow-x-hidden{overflow-x:hidden}
 
-/* -------------------- Page-Specific Styles (Inline from HTML) -------------------- */
+/* Page-Specific Styles (Inline from HTML) */
 #rec1813650891 .tmenu-mobile__burgerlogo a{color:#ffffff;font-weight:600}
 #rec1813650891 .tmenu-mobile__burgerlogo__title{color:#ffffff;font-weight:600}
 #rec1813650891 .t-btnflex.t-btnflex_type_button{color:#ffffff;border-style:solid !important;border-color:#ffffff !important;--border-width:3px;box-shadow:none !important;transition-duration:0.2s;transition-property:background-color,color,border-color,box-shadow,opacity,transform,gap;transition-timing-function:ease-in-out}
@@ -857,7 +857,7 @@ ul.t-card__container li ul{list-style-type:disc}
 }
 
 .custom-header__logo img {
-    max-width: 50px;
+    max-width: 200px;
     height: auto;
 }
 
@@ -874,7 +874,6 @@ ul.t-card__container li ul{list-style-type:disc}
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
-    border-radius: 4px;
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -882,7 +881,6 @@ ul.t-card__container li ul{list-style-type:disc}
 .custom-header__btn--portfolio {
     color: #ffffff;
     background-color: transparent;
-    border: 1px solid #ffffff;
 }
 
 .custom-header__btn--portfolio:hover {
