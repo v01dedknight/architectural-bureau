@@ -1,89 +1,3 @@
-/* Font Definitions */
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 250 1000;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations');     
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 300;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Light.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Light.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Light.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Light.woff') format('woff');
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 400;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Regular.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Regular.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),  
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Regular.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Regular.woff') format('woff');
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 500;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Medium.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Medium.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),  
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Medium.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Medium.woff') format('woff');
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 600;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Semibold.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Semibold.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),  
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Semibold.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Semibold.woff') format('woff');
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 700;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Bold.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Bold.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),  
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Bold.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Bold.woff') format('woff');
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 800;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Extrabold.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Extrabold.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),  
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Extrabold.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Extrabold.woff') format('woff');
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 900;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Black.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Black.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),  
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Black.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Black.woff') format('woff');
-}
-
 /* Base Reset & Global Styles */
 *,*:before,*:after{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}
 div,span,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,code,img,b,u,i,center,table,tr,th,td,video{margin:0;padding:0;border:0}
@@ -93,7 +7,7 @@ sub{line-height:0;font-size:smaller;vertical-align:sub}
 .t-row{margin:0}
 
 .csssize{height:13672px}
-#allrecords .r,body{--t-headline-font:'TildaSans',Arial,sans-serif;--t-text-font:'TildaSans',Arial,sans-serif}
+#allrecords .r,body{--t-headline-font:Arial,sans-serif;--t-text-font:Arial,sans-serif}
 .t-body{margin:0px}
 #allrecords,body{background-color:none}
 #allrecords{-webkit-font-smoothing:antialiased}
@@ -232,21 +146,21 @@ img:not([src]){visibility:hidden}
 }
 
 /* Typography */
-.t-text{font-family:'TildaSans',Arial,sans-serif;font-weight:300;color:#000000}
+.t-text{font-family:Arial,sans-serif;font-weight:300;color:#000000}
 .t-text_xs{font-size:15px;line-height:1.55}
 .t-text_sm{font-size:18px;line-height:1.55}
-.t-name{font-family:'TildaSans',Arial,sans-serif;font-weight:600;color:#000000}
+.t-name{font-family:Arial,sans-serif;font-weight:600;color:#000000}
 .t-name_md{font-size:20px;line-height:1.35}
-.t-title{font-family:'TildaSans',Arial,sans-serif;font-weight:600;color:#000000}
+.t-title{font-family:Arial,sans-serif;font-weight:600;color:#000000}
 .t-title_xxs{font-size:36px;line-height:1.23}
 .t-title_md{font-size:52px;line-height:1.23}
 .t-title_lg{font-size:64px;line-height:1.23}
 .t-title_xl{font-size:72px;line-height:1.17}
-.t-descr{font-family:'TildaSans',Arial,sans-serif;font-weight:300;color:#000000}
+.t-descr{font-family:Arial,sans-serif;font-weight:300;color:#000000}
 .t-descr_xs{font-size:16px;line-height:1.55}
 .t-descr_lg{font-size:22px;line-height:1.55}
 .t-descr_xl{font-size:24px;line-height:1.5}
-.t-uptitle{font-family:'TildaSans',Arial,sans-serif;font-weight:600;color:#000000;letter-spacing:2.5px}
+.t-uptitle{font-family:Arial,sans-serif;font-weight:600;color:#000000;letter-spacing:2.5px}
 .t-uptitle_sm{font-size:14px}
 .t-uptitle_md{font-size:16px}
 
@@ -282,11 +196,11 @@ img:not([src]){visibility:hidden}
 }
 
 /* Buttons */
-.t-btn{display:inline-block;font-family:'TildaSans',Arial,sans-serif;border:0 none;text-align:center;white-space:nowrap;vertical-align:middle;font-weight:700;background-image:none;cursor:pointer;-webkit-appearance:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.t-btn{display:inline-block;font-family:Arial,sans-serif;border:0 none;text-align:center;white-space:nowrap;vertical-align:middle;font-weight:700;background-image:none;cursor:pointer;-webkit-appearance:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 .t-btn td{vertical-align:middle}
 .t-btn_sending{opacity:.5}
-.t-submit{font-family:'TildaSans',Arial,sans-serif}
-.t-btnflex,.t-btn.t-btnflex,.t-submit.t-btnflex{display:inline-flex;align-items:center;justify-content:center;gap:1ch;max-width:100%;height:unset;padding:0;overflow:hidden;font-family:'TildaSans',Arial,sans-serif,Arial,sans-serif;font-weight:600;line-height:var(--line-height,1.4);padding-top:calc(((var(--height,0px) - 1em * var(--line-height,1.4)) / 2) - var(--border-width,0px));padding-bottom:calc(((var(--height,0px) - 1em * var(--line-height,1.4)) / 2) - var(--border-width,0px));box-sizing:border-box;border-style:solid;border-color:transparent;border-width:var(--border-width,0);background-image:none;cursor:pointer;user-select:none;text-decoration:none;color:inherit;border-radius:0;background-color:transparent;white-space:nowrap}
+.t-submit{font-family:Arial,sans-serif}
+.t-btnflex,.t-btn.t-btnflex,.t-submit.t-btnflex{display:inline-flex;align-items:center;justify-content:center;gap:1ch;max-width:100%;height:unset;padding:0;overflow:hidden;font-family:Arial,sans-serif,Arial,sans-serif;font-weight:600;line-height:var(--line-height,1.4);padding-top:calc(((var(--height,0px) - 1em * var(--line-height,1.4)) / 2) - var(--border-width,0px));padding-bottom:calc(((var(--height,0px) - 1em * var(--line-height,1.4)) / 2) - var(--border-width,0px));box-sizing:border-box;border-style:solid;border-color:transparent;border-width:var(--border-width,0);background-image:none;cursor:pointer;user-select:none;text-decoration:none;color:inherit;border-radius:0;background-color:transparent;white-space:nowrap}
 .t-btnflex.t-btnflex_icon_hover_only:not(:hover){gap:0}
 .t-btnflex__text{max-width:100%;overflow:hidden;text-align:center;white-space:inherit;text-overflow:ellipsis}
 .t-btnflex__icon{position:relative;flex-shrink:0;width:1.4em;height:1.4em;transition-duration:inherit}
@@ -752,20 +666,6 @@ ul.t-card__container li ul{list-style-type:disc}
 /* Footer T046 */
 .t046__text{text-align:center;padding-top:10px;padding-bottom:4px}
 
-/* Tilda Label */
-.t-tildalabel{background-color:#000;color:#fff;width:100%;height:70px;font-family:Arial;font-size:14px}
-.t-tildalabel:hover .t-tildalabel__wrapper{opacity:1}
-.t-tildalabel-free{padding:35px 0px 45px;height:auto;text-align:center}
-.t-tildalabel-free__main{max-width:340px;display:block;margin:0 auto;line-height:1.4;letter-spacing:.2px;color:inherit;opacity:.4}
-.t-tildalabel-free__main:hover{opacity:1}
-.t-tildalabel-free__txt-link:hover{opacity:1}
-.t-tildalabel-free__links-wr{display:table;margin:30px auto 0px}
-.t-tildalabel-free__txt-link{display:table-cell;padding:0px 15px;font-size:13px;text-decoration:none;color:inherit;opacity:.25}
-@media screen and (max-width:640px){
-  .t-tildalabel-free__txt-link{opacity:.4}
-  .t-tildalabel-free__main{opacity:.7}
-}
-
 /* Animations */
 .t396 .t-animate[data-animate-style=fadein],.t396 .t-animate[data-animate-style=fadeindown],.t396 .t-animate[data-animate-style=fadeinleft],.t396 .t-animate[data-animate-style=fadeinright],.t396 .t-animate[data-animate-style=fadeinup],.t396 .t-animate[data-animate-style=zoomin],.t396 .t-animate[data-animate-style=zoomout]{opacity:0}
 @media screen and (min-width:980px){
@@ -914,7 +814,7 @@ ul.t-card__container li ul{list-style-type:disc}
     transform: translateY(0);
 }
 
-/* Hide original Tilda header elements to avoid duplication */
+/* Hide original header elements to avoid duplication */
 #rec1813650891 {
     display: none !important;
 }

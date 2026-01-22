@@ -1,96 +1,4 @@
-/* 
-   ERBE - Consolidated Styles
-   Combined styles of the project
-*/
-
-/* 1. FONTS - TildaSans */
-
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 250 1000;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations');     
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 300;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Light.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Light.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Light.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Light.woff') format('woff');
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 400;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Regular.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Regular.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),  
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Regular.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Regular.woff') format('woff');
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 500;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Medium.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Medium.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),  
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Medium.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Medium.woff') format('woff');
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 600;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Semibold.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Semibold.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),  
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Semibold.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Semibold.woff') format('woff');
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 700;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Bold.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Bold.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),  
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Bold.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Bold.woff') format('woff');
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 800;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Extrabold.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Extrabold.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),  
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Extrabold.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Extrabold.woff') format('woff');
-}
-@font-face {
-  font-family: 'TildaSans';
-  font-style: normal;
-  font-weight: 900;
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Black.eot');
-  src: url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Black.eot?#iefix') format('embedded-opentype'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff2') format('woff2-variations'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-VF.woff') format('woff-variations'),  
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Black.woff2') format('woff2'),
-       url('https://static.tildacdn.com/fonts/tildasans/TildaSans-Black.woff') format('woff');
-}
-
-/* 2. MAIN STYLES - Основные стили */
+/* 1-2. MAIN STYLES - Основные стили */
 
 /* Стили отображения записей с анимацией появления */
 @media screen and (min-width: 980px) {
@@ -369,7 +277,7 @@
 }
 
 .t-teleonear__code {
-    font-family: 'TildaSans', sans-serif;
+    font-family:sans-serif;
     font-size: 16px;
     color: #000;
     font-weight: 400;
@@ -594,7 +502,7 @@
     --color-divider: #d2cec9;
     --color-overlay: #1a1a1a;
     --color-white: #ffffff;
-    --font-main: 'TildaSans', Helvetica, Arial, sans-serif;
+    --font-main:Helvetica, Arial, sans-serif;
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -1072,7 +980,7 @@
 .portfolio-animate_delay-4 { transition-delay: 0.4s; }
 .portfolio-animate_delay-5 { transition-delay: 0.5s; }
 
-/* 4. ANIMATIONS - Стили анимаций Tilda */
+/* 4. ANIMATIONS */
 
 /* Basic animation styles for T396 */
 .t396 .t-animate[data-animate-style="fadein"],
@@ -1827,7 +1735,7 @@
 }
 
 .t-input-phonemask__options-item-code {
-    font-family: 'TildaSans', Arial, sans-serif;
+    font-family:Arial, sans-serif;
     color: #000;
     font-size: 14px;
     font-weight: 500;
@@ -2424,7 +2332,7 @@
     transform: translateY(0);
 }
 
-/* Hide original Tilda header elements to avoid duplication */
+/* Hide original header elements to avoid duplication */
 #rec1813650891 {
     display: none !important;
 }
