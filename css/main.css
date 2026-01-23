@@ -823,3 +823,50 @@ ul.t-card__container li ul{list-style-type:disc}
     padding-top: 40px !important;
     padding-bottom: 40px !important;
 }
+
+/* Общий стиль кнопок футера */
+.footer-btn {
+    display: inline-block; /* чтобы hover и padding работали корректно */
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Размеры кнопок */
+.footer-btn--large {
+    padding: 14px 28px;
+    font-size: 16px;
+}
+
+.footer-btn--small {
+    padding: 12px 24px;
+    font-size: 14px;
+}
+
+/* Портфолио-стиль (кнопка заказчика) */
+.footer-btn--portfolio {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.footer-btn--portfolio:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* CTA-стиль (твоя кнопка) */
+.footer-btn--cta {
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.footer-btn--cta:hover {
+    background-color: #e0e0e0;
+    border-color: #e0e0e0;
+}
