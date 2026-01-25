@@ -2367,3 +2367,9 @@
     padding-bottom: 40px !important;
     font-size: 35px;
 }
+
+.portfolio-item__category,
+.portfolio-item__title,
+.portfolio-item__location {
+    margin-bottom: 15px;
+}
