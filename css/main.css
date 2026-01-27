@@ -824,9 +824,9 @@ ul.t-card__container li ul{list-style-type:disc}
     padding-bottom: 40px !important;
 }
 
-/* The overall style of the footer buttons. */
+/* Общий стиль кнопок футера */
 .footer-btn {
-    display: inline-block; /* so that hover and padding work correctly */
+    display: inline-block; /* чтобы hover и padding работали корректно */
     font-family: 'Arial', sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -837,7 +837,7 @@ ul.t-card__container li ul{list-style-type:disc}
     text-align: center;
 }
 
-/* Button sizes */
+/* Размеры кнопок */
 .footer-btn--large {
     padding: 14px 28px;
     font-size: 16px;
@@ -848,7 +848,7 @@ ul.t-card__container li ul{list-style-type:disc}
     font-size: 14px;
 }
 
-/* Portfolio style (customer button) */
+/* Портфолио-стиль (кнопка заказчика) */
 .footer-btn--portfolio {
     color: #ffffff;
     background-color: transparent;
@@ -859,7 +859,7 @@ ul.t-card__container li ul{list-style-type:disc}
     color: #000000;
 }
 
-/* CTA style (your button) */
+/* CTA-стиль (твоя кнопка) */
 .footer-btn--cta {
     color: #000000;
     background-color: #ffffff;
@@ -871,49 +871,59 @@ ul.t-card__container li ul{list-style-type:disc}
     border-color: #e0e0e0;
 }
 
-/* Overlay и модальное окно */
+
+/* Overlay */
 #modal-container {
-    display: none; /* по умолчанию скрыт */
+    color: #fff;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6); /* лёгкое затемнение */
+    background: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* Модальная форма */
+/* Modal form */
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
     width: 100%;
-    max-width: 500px;
-    background: #1a1a1a; /* чуть светлее, чем фон сайта */
-    padding: 40px;
-    border-radius: 8px;
+    max-width: 600px;
+    background: #1a1a1a;
+    padding: 70px;
+    border-radius: 10px;
     border: 2px solid #fff;
     position: relative;
-    box-shadow: 0 0 40px rgba(255,255,255,0.05);
+    box-shadow: 0 0 50px rgba(255,255,255,0.05);
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
-/* Закрытие формы */
+/* close button */
 .contact-form__close {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 20px;
+    right: 20px;
     background: none;
     border: none;
     color: #fff;
-    font-size: 22px;
+    font-size: 24px;
     cursor: pointer;
+    z-index: 10;
+    width: 10px;
+    height: 20px;
+    font-size: 17px;
 }
 
-/* Стили полей и кнопок остаются прежними */
+/* input fields and buttons */
 .contact-form label {
     display: flex;
     flex-direction: column;
@@ -924,10 +934,10 @@ ul.t-card__container li ul{list-style-type:disc}
 .contact-form input,
 .contact-form textarea {
     margin-top: 8px;
-    padding: 12px 15px;
+    padding: 14px 18px;
     background: #111;
     border: 2px solid #fff;
-    border-radius: 4px;
+    border-radius: 5px;
     color: #fff;
     font-size: 16px;
     outline: none;
@@ -947,11 +957,11 @@ ul.t-card__container li ul{list-style-type:disc}
 
 .contact-form textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 150px;
 }
 
 .contact-form button {
-    padding: 15px 20px;
+    padding: 16px 25px;
     background: #fff;
     color: #000;
     font-weight: 700;
@@ -959,7 +969,7 @@ ul.t-card__container li ul{list-style-type:disc}
     letter-spacing: 1px;
     cursor: pointer;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     transition: all 0.3s;
 }
 

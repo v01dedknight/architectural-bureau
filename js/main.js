@@ -167,13 +167,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Form
 const openBtn = document.getElementById('open-form-btn');
 const modalContainer = document.getElementById('modal-container');
 
 openBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    // Если форма уже есть, просто показываем overlay
+    // If the form already exists, we simply show the overlay.
     if (!modalContainer.innerHTML) {
         modalContainer.innerHTML = `
             <form id="project-request-form" class="contact-form">
@@ -199,14 +200,15 @@ openBtn.addEventListener('click', (e) => {
         `;
     }
 
+    modalContainer.style.background = 'rgba(0,0,0,0.6)';
     modalContainer.style.display = 'flex';
 
-    // Закрытие формы по кнопке "×"
+    // Closing the form by clicking the "x" button.
     modalContainer.querySelector('.contact-form__close').addEventListener('click', () => {
         modalContainer.style.display = 'none';
     });
 
-    // Закрытие формы по клику на overlay
+    // Closing the form by clicking on the overlay.
     modalContainer.addEventListener('click', (e) => {
         if (e.target === modalContainer) {
             modalContainer.style.display = 'none';
