@@ -144,58 +144,106 @@ document.addEventListener('DOMContentLoaded', function() {
 const openBtn = document.getElementById('open-form-btn');
 const modalContainer = document.getElementById('modal-container');
 
-openBtn.addEventListener('click', (e) => {
-
-    // Canceling the default behavior of the link
-    e.preventDefault();
-
-    // If the form has not been created yet - create it
-    if (!modalContainer.innerHTML) {
-        modalContainer.innerHTML = `
-            <div class="modal-wrapper">
-                <form id="project-request-form" class="contact-form">
-                    <button type="button" class="contact-form__close">&times;</button>
-                    <label>
-                        Имя*:
-                        <input type="text" name="name" placeholder="Ваше имя" required>
-                    </label>
-                    <label>
-                        Телефон*:
-                        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
-                    </label>
-                    <label>
-                        E-mail:
-                        <input type="email" name="email" placeholder="example@mail.com">
-                    </label>
-                    <label>
-                        Суть заявки*:
-                        <textarea name="message" placeholder="Опишите суть заявки" required></textarea>
-                    </label>
-                    <button type="submit">Отправить</button>
-                </form>
-            </div>
-        `;
+// A universal code for opening the form on any page
+document.addEventListener("DOMContentLoaded", () => {
+    // We find all the buttons that open the form
+    const openBtns = document.querySelectorAll('.custom-header__btn--cta');
+    
+    // We create a container for the modal window if it doesn't already exist
+    let modalContainer = document.getElementById('modal-container');
+    if (!modalContainer) {
+        modalContainer = document.createElement('div');
+        modalContainer.id = 'modal-container';
+        document.body.appendChild(modalContainer);
     }
 
-    // Show overlay
-    modalContainer.style.display = 'flex';
+    // We set up an event handler for each button
+    openBtns.forEach(openBtn => {
+        openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
 
-    const form = modalContainer.querySelector('.contact-form');
+            // If the form has not yet been created, create it
+            if (!modalContainer.innerHTML) {
+                modalContainer.innerHTML = `
+                    <div class="modal-wrapper">
+                        <form id="project-request-form" class="contact-form">
+                            <button type="button" class="contact-form__close">&times;</button>
+                            <label>
+                                Имя *:
+                                <input type="text" name="name" placeholder="Ваше имя" required>
+                            </label>
+                            <label>
+                                Телефон *:
+                                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+                            </label>
+                            <label>
+                                E-mail:
+                                <input type="email" name="email" placeholder="example@mail.com">
+                            </label>
+                            <label>
+                                Суть заявки *:
+                                <textarea name="message" placeholder="Опишите суть заявки" required></textarea>
+                            </label>
+                            <button type="submit">Отправить</button>
+                        </form>
+                        <button type="button" class="contact-form__close">&times;</button>
+                    </div>
+                `;
 
-    // Smooth appearance animation
-    setTimeout(() => form.classList.add('show'), 10);
+                const form = modalContainer.querySelector('.contact-form');
 
-    // Closing with a cross button
-    modalContainer.querySelector('.contact-form__close').addEventListener('click', () => {
-        form.classList.remove('show');
-        setTimeout(() => modalContainer.style.display = 'none', 400);
+                // Form submission handler
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const name = form.name.value.trim();
+                    const phone = form.phone.value.trim();
+                    const email = form.email.value.trim();
+                    const message = form.message.value.trim();
+
+                    try {
+                        const response = await fetch('http://127.0.0.1:8000/send', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify({ name, phone, email, message })
+                        });
+                        const data = await response.json();
+
+                        if (data.ok) {
+                            alert("Заявка отправлена!");
+                            form.reset();
+                            form.classList.remove('show');
+                            setTimeout(() => modalContainer.style.display = 'none', 400);
+                        } else {
+                            alert("Ошибка отправки, попробуйте позже");
+                        }
+                    } catch (err) {
+                        console.error(err);
+                        alert("Ошибка отправки, попробуйте позже");
+                    }
+                });
+            }
+
+            // Displaying the modal window
+            modalContainer.style.display = 'flex';
+            const form = modalContainer.querySelector('.contact-form');
+            setTimeout(() => form.classList.add('show'), 10);
+
+            // Closing the form with a cross icon
+            modalContainer.querySelectorAll('.contact-form__close').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    form.classList.remove('show');
+                    setTimeout(() => modalContainer.style.display = 'none', 400);
+                });
+            });
+
+            // Closing when clicking on the background
+            modalContainer.addEventListener('click', (e) => {
+                if (e.target === modalContainer) {
+                    form.classList.remove('show');
+                    setTimeout(() => modalContainer.style.display = 'none', 400);
+                }
+            }, { once: true });
+        });
     });
-
-    // Closing on click of the overlay
-    modalContainer.addEventListener('click', (e) => {
-        if (e.target === modalContainer) {
-            form.classList.remove('show');
-            setTimeout(() => modalContainer.style.display = 'none', 400);
-        }
-    }, { once: true });
 });
