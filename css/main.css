@@ -824,9 +824,10 @@ ul.t-card__container li ul{list-style-type:disc}
     padding-bottom: 40px !important;
 }
 
-/* Общий стиль кнопок футера */
+/* The overall style of the footer buttons. */
 .footer-btn {
-    display: inline-block; /* чтобы hover и padding работали корректно */
+    /* so that hover and padding work correctly */
+    display: inline-block;
     font-family: 'Arial', sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -837,7 +838,7 @@ ul.t-card__container li ul{list-style-type:disc}
     text-align: center;
 }
 
-/* Размеры кнопок */
+/* Button sizes */
 .footer-btn--large {
     padding: 14px 28px;
     font-size: 16px;
@@ -848,7 +849,7 @@ ul.t-card__container li ul{list-style-type:disc}
     font-size: 14px;
 }
 
-/* Портфолио-стиль (кнопка заказчика) */
+/* Portfolio-style (buttons)*/
 .footer-btn--portfolio {
     color: #ffffff;
     background-color: transparent;
@@ -859,7 +860,7 @@ ul.t-card__container li ul{list-style-type:disc}
     color: #000000;
 }
 
-/* CTA-стиль (твоя кнопка) */
+/* CTA-style */
 .footer-btn--cta {
     color: #000000;
     background-color: #ffffff;
@@ -874,7 +875,10 @@ ul.t-card__container li ul{list-style-type:disc}
 
 /* Overlay */
 #modal-container {
+    /* dimming when the form is opened */
     background: rgba(0, 0, 0, 0.6);
+    
+    /* hidden by default */
     display: none;
     position: fixed;
     top: 0;
@@ -884,8 +888,15 @@ ul.t-card__container li ul{list-style-type:disc}
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    padding: 20px;
     box-sizing: border-box;
+}
+
+/* For small monitors */
+.modal-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 /* Modal form */
@@ -896,6 +907,8 @@ ul.t-card__container li ul{list-style-type:disc}
     width: 100%;
     max-width: 600px;
     background: #1a1a1a;
+
+    /* Top padding for spacing from the cross icon. */
     padding: 80px 20px 20px 20px;
     border-radius: 10px;
     border: 2px solid #fff;
@@ -904,7 +917,7 @@ ul.t-card__container li ul{list-style-type:disc}
     max-height: 90vh;
     overflow-y: auto;
 
-    /* animation */
+    /* appearance animation */
     opacity: 0;
     transform: translateY(-50px) scale(0.95);
     transition: opacity 0.4s ease, transform 0.4s ease;
@@ -916,28 +929,22 @@ ul.t-card__container li ul{list-style-type:disc}
     transform: translateY(0) scale(1);
 }
 
-/* For small monitors */
-.modal-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
 /* close button */
 .contact-form__close {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    color: #000;
+    font-size: 20px;
+    border-radius: 50%;
     border: none;
-    color: #fff;
-    font-size: 24px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     z-index: 10;
-    width: 10px;
-    height: 20px;
-    font-size: 17px;
 }
 
 /* input fields and buttons */
@@ -947,7 +954,6 @@ ul.t-card__container li ul{list-style-type:disc}
     display: flex;
     flex-direction: column;
     font-weight: 500;
-    font-size: 14px;
 }
 
 .contact-form input,
