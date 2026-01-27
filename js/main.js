@@ -174,44 +174,53 @@ const modalContainer = document.getElementById('modal-container');
 openBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    // If the form already exists, we simply show the overlay.
     if (!modalContainer.innerHTML) {
         modalContainer.innerHTML = `
-            <form id="project-request-form" class="contact-form">
+            <div class="modal-wrapper">
+                <form id="project-request-form" class="contact-form">
+                    <button type="button" class="contact-form__close">&times;</button>
+                    <label>
+                        Имя*:
+                        <input type="text" name="name" placeholder="Ваше имя" required>
+                    </label>
+                    <label>
+                        Телефон*:
+                        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+                    </label>
+                    <label>
+                        E-mail:
+                        <input type="email" name="email" placeholder="example@mail.com">
+                    </label>
+                    <label>
+                        Суть заявки*:
+                        <textarea name="message" placeholder="Опишите суть заявки" required></textarea>
+                    </label>
+                    <button type="submit">Отправить</button>
+                </form>
                 <button type="button" class="contact-form__close">&times;</button>
-                <label>
-                    Имя*:
-                    <input type="text" name="name" placeholder="Ваше имя" required>
-                </label>
-                <label>
-                    Телефон*:
-                    <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
-                </label>
-                <label>
-                    E-mail:
-                    <input type="email" name="email" placeholder="example@mail.com">
-                </label>
-                <label>
-                    Суть заявки*:
-                    <textarea name="message" placeholder="Опишите суть заявки" required></textarea>
-                </label>
-                <button type="submit">Отправить</button>
-            </form>
+            </div>
         `;
     }
 
-    modalContainer.style.background = 'rgba(0,0,0,0.6)';
     modalContainer.style.display = 'flex';
 
-    // Closing the form by clicking the "x" button.
+    const form = modalContainer.querySelector('.contact-form');
+
+    // маленькая задержка, чтобы CSS transition сработал
+    setTimeout(() => {
+        form.classList.add('show');
+    }, 10);
+
+    // Закрытие формы
     modalContainer.querySelector('.contact-form__close').addEventListener('click', () => {
-        modalContainer.style.display = 'none';
+        form.classList.remove('show');
+        setTimeout(() => modalContainer.style.display = 'none', 400); // ждем окончания анимации
     });
 
-    // Closing the form by clicking on the overlay.
     modalContainer.addEventListener('click', (e) => {
         if (e.target === modalContainer) {
-            modalContainer.style.display = 'none';
+            form.classList.remove('show');
+            setTimeout(() => modalContainer.style.display = 'none', 400);
         }
     }, { once: true });
 });
