@@ -700,7 +700,6 @@ ul.t-card__container li ul{list-style-type:disc}
   #rec1813650891 .t446__imglogo{padding:20px 0}
   #rec1813650891 .t446{position:static}
 }
-#rec1813650891 .t-menu__link-item{}
 @supports (overflow:-webkit-marquee) and (justify-content:inherit){
   #rec1813650891 .t-menu__link-item,#rec1813650891 .t-menu__link-item.t-active{opacity:1 !important}
 }
