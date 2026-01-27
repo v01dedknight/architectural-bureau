@@ -140,14 +140,16 @@ document.addEventListener('DOMContentLoaded', function() {
     header.classList.add('visible');
 });
 
-// Открытие модальной формы
+// Form
 const openBtn = document.getElementById('open-form-btn');
 const modalContainer = document.getElementById('modal-container');
 
 openBtn.addEventListener('click', (e) => {
-    e.preventDefault(); // отменяем стандартное поведение ссылки
 
-    // Если форма ещё не создана, создаём её
+    // Canceling the default behavior of the link
+    e.preventDefault();
+
+    // If the form has not been created yet - create it
     if (!modalContainer.innerHTML) {
         modalContainer.innerHTML = `
             <div class="modal-wrapper">
@@ -175,21 +177,21 @@ openBtn.addEventListener('click', (e) => {
         `;
     }
 
-    // Показываем overlay
+    // Show overlay
     modalContainer.style.display = 'flex';
 
     const form = modalContainer.querySelector('.contact-form');
 
-    // Плавная анимация появления
+    // Smooth appearance animation
     setTimeout(() => form.classList.add('show'), 10);
 
-    // Закрытие крестиком
+    // Closing with a cross button
     modalContainer.querySelector('.contact-form__close').addEventListener('click', () => {
         form.classList.remove('show');
         setTimeout(() => modalContainer.style.display = 'none', 400);
     });
 
-    // Закрытие по клику на overlay
+    // Closing on click of the overlay
     modalContainer.addEventListener('click', (e) => {
         if (e.target === modalContainer) {
             form.classList.remove('show');

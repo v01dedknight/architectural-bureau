@@ -180,11 +180,11 @@ openBtn.addEventListener('click', (e) => {
                 <form id="project-request-form" class="contact-form">
                     <button type="button" class="contact-form__close">&times;</button>
                     <label>
-                        Имя*:
+                        Имя *:
                         <input type="text" name="name" placeholder="Ваше имя" required>
                     </label>
                     <label>
-                        Телефон*:
+                        Телефон *:
                         <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
                     </label>
                     <label>
@@ -192,7 +192,7 @@ openBtn.addEventListener('click', (e) => {
                         <input type="email" name="email" placeholder="example@mail.com">
                     </label>
                     <label>
-                        Суть заявки*:
+                        Суть заявки *:
                         <textarea name="message" placeholder="Опишите суть заявки" required></textarea>
                     </label>
                     <button type="submit">Отправить</button>
@@ -206,15 +206,17 @@ openBtn.addEventListener('click', (e) => {
 
     const form = modalContainer.querySelector('.contact-form');
 
-    // маленькая задержка, чтобы CSS transition сработал
+    // small wait, for trigger CSS transition
     setTimeout(() => {
         form.classList.add('show');
     }, 10);
 
-    // Закрытие формы
+    // Close form
     modalContainer.querySelector('.contact-form__close').addEventListener('click', () => {
         form.classList.remove('show');
-        setTimeout(() => modalContainer.style.display = 'none', 400); // ждем окончания анимации
+
+        // Await for animation end.
+        setTimeout(() => modalContainer.style.display = 'none', 400);
     });
 
     modalContainer.addEventListener('click', (e) => {
