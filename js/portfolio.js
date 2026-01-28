@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    // 1. АНИМАЦИИ И ФИЛЬТРАЦИЯ
+    // Animation and filter
     function initPortfolioLogic() {
         const animateElements = document.querySelectorAll('.portfolio-animate');
         const observer = new IntersectionObserver((entries) => {
@@ -15,7 +15,7 @@
         animateElements.forEach(el => observer.observe(el));
     }
 
-    // 2. КОНТРОЛЛЕР ХЕДЕРА
+    // Header controller
     const header = document.querySelector('.header');
     let lastScrollY = window.scrollY;
 
@@ -36,11 +36,11 @@
         window.requestAnimationFrame(updateHeaderVisibility);
     }, { passive: true });
 
-    // 3. ЛОГИКА ФОРМЫ (ВАШ РАБОЧИЙ КОД)
+    // Form logic
     document.addEventListener("DOMContentLoaded", () => {
         initPortfolioLogic();
         
-        // Ищем и кнопки в шапке, и кнопки в футере
+        // Searching for buttons in the header and buttons in the footer
         const openBtns = document.querySelectorAll('.header__btn--cta, .footer-btn');
         let modalContainer = document.getElementById('modal-container');
 
@@ -51,7 +51,7 @@
         }
 
         openBtns.forEach(openBtn => {
-            // Пропускаем внешние ссылки в футере (Telegram/Kwork)
+            // External links in the footer are allowed
             if (openBtn.tagName === 'A' && openBtn.getAttribute('href').startsWith('http')) {
                 if (!openBtn.classList.contains('header__btn--cta')) return; 
             }

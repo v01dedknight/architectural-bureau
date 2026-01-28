@@ -11,14 +11,14 @@ from dotenv import load_dotenv
 #
 
 
-# We are loading the token and chat ID from the .env file
+# Loading the token and chat ID from the .env file
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 
 app = FastAPI()
 
-# We are enabling CORS for all domains (it can be restricted to specific ones)
+# Enabling CORS for all domains (it can be restricted to specific ones)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -28,7 +28,7 @@ app.add_middleware(
 
 @app.post("/send")
 async def send_message(request: Request):
-    # We are retrieving data from the request
+    # Retrieving data from the request
     data = await request.json()
     print("Получены данные:", data, flush=True)
     
@@ -41,7 +41,7 @@ async def send_message(request: Request):
     if not name or not phone or not message:
         return JSONResponse({"ok": False, "error": "Не заполнены обязательные поля"}, status_code=400)
 
-    # We are creating text for Telegram
+    # Creating text for Telegram
     text = f"Новая заявка:\nИмя: {name}\nТелефон: {phone}\n"
     if email:
         text += f"E-mail: {email}\n"

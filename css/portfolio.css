@@ -1,5 +1,5 @@
 :root {
-    --color-bg: #ffffff; /* Вернул светлый фон */
+    --color-bg: #ffffff;
     --color-text: #333333;
     --color-accent: #7b746c;
     --color-divider: #d2cec9;
@@ -8,7 +8,7 @@
     --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* 1. БАЗОВЫЕ НАСТРОЙКИ */
+/* Base settings */
 body {
     margin: 0;
     padding: 0;
@@ -39,7 +39,7 @@ body {
     width: 100%;
 }
 
-/* 2. ШАПКА (HEADER) */
+/* Header */
 .header {
     position: fixed;
     top: 0;
@@ -53,10 +53,8 @@ body {
     padding: 0 40px;
     z-index: 1000;
     color: #fff;
-    
-    /* Добавьте эти 3 строки: */
     transition: transform 0.4s ease-in-out;
-    transform: translateY(-100%); /* Прячем за верхний край */
+    transform: translateY(-100%);
 }
 
 .header__btn:hover {
@@ -64,9 +62,9 @@ body {
     color: #000000;
 }
 
-/* 3. ГЕРОЙ-СЕКЦИЯ */
+/* Hero-section */
 .portfolio-hero {
-    padding: 180px 40px 60px; /* Увеличил отступ сверху из-за шапки */
+    padding: 180px 40px 60px;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
@@ -88,7 +86,7 @@ body {
     margin: 0 auto;
 }
 
-/* 4. СЕТКА ПРОЕКТОВ */
+/* Project web */
 .portfolio-grid {
     padding: 60px 40px 100px;
     max-width: 1200px;
@@ -128,7 +126,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Оверлей при наведении */
+/* Overlay while hover */
 .portfolio-item__overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -156,7 +154,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* Инфо под карточкой */
+/* Information under project-card */
 .portfolio-item__info {
     padding: 20px 0;
 }
@@ -176,10 +174,10 @@ body {
     display: block;
 }
 
-/* 5. ФУТЕР (КОНТАКТЫ) — Возвращен стиль главной */
+/* Footer */
 .portfolio-footer {
     padding: 40px 0;
-    background-color: #1c1c1c; /* Темный фон */
+    background-color: #1c1c1c;
     text-align: center;
     border-top: 1px solid rgba(255,255,255,0.1);
 }
@@ -214,7 +212,7 @@ body {
     background: linear-gradient(145deg, #333, #1a1a1a);
 }
 
-/* 6. АНИМАЦИИ */
+/* Animation */
 .portfolio-animate {
     opacity: 0;
     transform: translateY(30px);
@@ -226,9 +224,75 @@ body {
     transform: translateY(0);
 }
 
-/* АДАПТИВНОСТЬ */
+/* Mobile adaptive */
+
 @media (max-width: 960px) {
-    .portfolio-grid__items { grid-template-columns: 1fr; }
-    .portfolio-item_large { grid-column: span 1; }
-    .portfolio-hero__title { font-size: 42px; }
+    .portfolio-hero {
+        padding: 120px 20px 40px;
+    }
+
+    .portfolio-hero__title {
+        font-size: 36px;
+        letter-spacing: 4px;
+    }
+
+    .portfolio-grid__items {
+        grid-template-columns: 1fr; 
+        gap: 30px;
+    }
+
+    .portfolio-item_large {
+        grid-column: span 1;
+    }
+
+    .portfolio-item__overlay {
+        opacity: 0 !important;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .portfolio-item.active .portfolio-item__overlay {
+        opacity: 1 !important;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .portfolio-item.active .portfolio-item__image {
+        transform: scale(1.05);
+    }
+
+    .header {
+        padding: 0 20px;
+        height: 64px;
+    }
+
+    .header__logo img {
+        height: auto; 
+        max-width: 100px;
+        display: block;
+    }
+
+    .footer-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .footer-btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-hero__title {
+        font-size: 28px;
+    }
+    
+    .portfolio-item__info-title {
+        font-size: 18px;
+    }
 }

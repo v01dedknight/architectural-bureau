@@ -50,13 +50,11 @@
 })();
 
 
-/**
- * Modal form handler & Header Controller
- */
+/* Modal form handler & Header Controller */
 (function() {
     'use strict';
 
-    // --- КОНТРОЛЛЕР ХЕДЕРА ---
+    // Hedder controller
     const header = document.querySelector('.header');
     let lastScrollY = window.scrollY;
 
@@ -76,9 +74,9 @@
         window.requestAnimationFrame(updateHeaderVisibility);
     }, { passive: true });
 
-    // --- ЛОГИКА ФОРМЫ (ВАШ СТАРЫЙ РАБОЧИЙ КОД) ---
+    // Form logic
     document.addEventListener("DOMContentLoaded", () => {
-        // Ищем кнопки по актуальному классу
+        // Searching for buttons by current class
         const openBtns = document.querySelectorAll('.header__btn--cta');
         let modalContainer = document.getElementById('modal-container');
 
@@ -108,7 +106,7 @@
 
                     const form = modalContainer.querySelector('.contact-form');
 
-                    // backend connection (порт 8000 как в вашем примере)
+                    // backend connection
                     form.addEventListener('submit', async (e) => {
                         e.preventDefault();
                         const payload = {
@@ -119,6 +117,7 @@
                         };
 
                         try {
+                            // Check out README.md before deploy on server (PORT 8000)
                             const response = await fetch('http://127.0.0.1:8000/send', {
                                 method: 'POST',
                                 headers: {'Content-Type': 'application/json'},
@@ -149,7 +148,7 @@
             const form = modalContainer.querySelector('.contact-form');
             setTimeout(() => form.classList.add('show'), 10);
             
-            // Навешиваем закрытие (один раз при создании или открытии)
+            // Attaching the closing handler (once when creating or opening)
             modalContainer.querySelectorAll('.contact-form__close').forEach(btn => {
                 btn.onclick = closeModal;
             });

@@ -477,6 +477,34 @@ a {
 }
 
 @media (max-width: 960px) {
+    .project-card:hover .project-card__content {
+        transform: none !important;
+        opacity: 0;
+    }
+
+    .project-card__content {
+        opacity: 0 !important;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .project-card.active .project-card__content {
+        opacity: 1 !important;
+        visibility: visible;
+        pointer-events: auto;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .project-card:hover .project-card__image {
+        transform: none !important;
+    }
+
     .projects__grid {
         grid-template-columns: 1fr;
     }
@@ -501,6 +529,22 @@ a {
 }
 
 @media (max-width: 640px) {
+    .portfolio-footer, .contacts {
+        padding: 40px 15px;
+    }
+
+    .footer-buttons, .contacts__buttons {
+        gap: 10px; 
+    }
+
+    .footer-btn, .contacts__btn {
+        padding: 10px 18px; 
+        font-size: 15px;    
+        border-radius: 20px; 
+        max-width: 260px;   
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
     .hero__title {
         font-size: 32px;
     }
@@ -544,11 +588,17 @@ a {
     }
 
     .header__logo img {
-        max-width: 150px;
+        max-width: 100px;
     }
 }
 
 @media (max-width: 480px) {
+    .footer-btn, .contacts__btn {
+        padding: 8px 16px;
+        font-size: 14px;
+        max-width: 220px;
+    }
+
     .hero__title {
         font-size: 30px;
     }
@@ -559,72 +609,68 @@ a {
     }
 
     .header {
-        height: 60px; /* Делаем шапку чуть изящнее */
+        height: 60px;
         padding: 0 10px;
     }
 
     .header__logo img {
-        max-width: 115px; /* Логотип станет меньше, но сохранит четкость */
+        max-width: 115px;
         height: auto;
     }
 
     .header__nav {
-        gap: 6px; /* Минимальный зазор между кнопками */
+        gap: 6px;
     }
 
     .header__btn {
         padding: 6px 10px;
-        font-size: 10px; /* Уменьшаем шрифт, чтобы текст не разрывал кнопку */
-        letter-spacing: 0; /* Убираем лишние отступы между буквами */
+        font-size: 10px;
+        letter-spacing: 0;
     }
 }
 
 
 @media (max-width: 640px) {
-    /* Чтобы форма занимала больше места на узких экранах */
     .contact-form {
         width: 95%;
-        padding: 60px 15px 20px 15px; /* Уменьшаем внутренние отступы */
-        gap: 15px; /* Сближаем поля */
+        padding: 60px 15px 20px 15px;
+        gap: 15px;
     }
 
-    /* Делаем логотип чуть меньше, чтобы кнопки влезли */
     .header__logo img {
         height: 30px; 
     }
 
     .header {
-        padding: 0 15px; /* Меньше отступы по бокам в шапке */
+        padding: 0 15px;
     }
 }
 
-/* Адаптация для мобильных устройств */
 @media (max-width: 640px) {
     .header {
-        height: 64px; /* Ограничиваем высоту хедера */
-        padding: 0 10px; /* Уменьшаем боковые отступы хедера */
+        height: 64px;
+        padding: 0 10px;
     }
 
     .header__logo img {
-        max-width: 130px; /* Уменьшаем ширину логотипа, сохраняя пропорции */
-        height: auto; /* Гарантируем сохранение соотношения сторон */
+        max-width: 130px;
+        height: auto;
     }
 
     .header__nav {
-        gap: 8px; /* Минимизируем расстояние между кнопками */
+        gap: 8px;
     }
 
     .header__btn {
-        padding: 8px 12px; /* Компактные кнопки для мобильных */
-        font-size: 11px; /* Уменьшаем шрифт, чтобы текст влез в одну строку */
-        white-space: nowrap; /* Запрещаем перенос текста внутри кнопок */
+        padding: 8px 12px;
+        font-size: 11px;
+        white-space: nowrap;
     }
 }
 
-/* Дополнительная оптимизация для самых маленьких экранов */
 @media (max-width: 380px) {
     .header__logo img {
-        max-width: 110px; /* Еще немного уменьшаем лого на очень узких экранах */
+        max-width: 110px;
     }
 
     .header__btn {
