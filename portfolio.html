@@ -1,430 +1,345 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="ru">
 <head>
-    <!--Title, icon-->
-    <title>Rowelltz arch. - Портфолио</title>
-    <link rel="icon" type="image/svg+xml" sizes="any" href="css/favicon.ico">
-
-    <!--meta-->
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Портфолио архитектурного бюро ERBE. Проекты жилых и коммерческих помещений в Кемерово">
-    <meta property="og:url" content="http://erbeinteriors.ru/portfolio.html">
-    <meta property="og:title" content="Портфолио — ERBE">
-    <meta property="og:description" content="Портфолио архитектурного бюро ERBE. Проекты жилых и коммерческих помещений">
-    <meta property="og:type" content="website">
-    <meta name="format-detection" content="telephone=no">
-    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <title>Rowelltz arch. - Портфолио</title>
+    
+    <meta name="description" content="Портфолио архитектурного бюро Rowelltz arch. Проекты жилых и коммерческих интерьеров.">
+    <link rel="icon" type="image/png" sizes="50x50" href="css/favicon.ico">
 
-    <!--links-->
-    <link rel="canonical" href="http://erbeinteriors.ru/portfolio.html">
-
-    <!-- Single file for custom styles -->
-    <link rel="stylesheet" href="css/portfolio.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/main.css"> <link rel="stylesheet" href="css/portfolio.css">
 </head>
 
-<body class="t-body">
-    <!-- Navigation -->
-    <div class="custom-header__trigger"></div>
-    <header class="custom-header">
-        <div class="custom-header__logo">
+<body>
+    <div class="header__trigger"></div>
+    <header class="header">
+        <div class="header__logo">
             <a href="index.html">
-                <img src="css/company_logo.png" alt="Company Logo">
+                <img src="css/company_logo.png" alt="Rowelltz arch. logo">
             </a>
         </div>
-        <nav class="custom-header__nav">
-            <a href="index.html" class="custom-header__btn custom-header__btn--portfolio">Главная</a>
-            <a href="#" class="custom-header__btn custom-header__btn--cta" id="open-form-btn">Оставить заявку</a>
+        <nav class="header__nav">
+            <a href="index.html" class="header__btn">Главная</a>
+            <button type="button" class="header__btn header__btn--cta" id="open-form-btn">Оставить заявку</button>
         </nav>
     </header>
     
-    <!-- Контейнер для модалки -->
     <div id="modal-container"></div>
 
-    <!-- Hero section -->
-    <section class="portfolio-hero">
-        <div class="portfolio-hero__content">
-            <h1 class="portfolio-hero__title portfolio-animate">Портфолио</h1>
-            <div class="portfolio-hero__divider portfolio-animate portfolio-animate_delay-1"></div>
-        </div>
-    </section>
+    <main>
+        <section class="portfolio-hero">
+            <div class="portfolio-hero__content">
+                <h1 class="portfolio-hero__title portfolio-animate">Портфолио</h1>
+                <div class="portfolio-hero__divider portfolio-animate"></div>
+            </div>
+        </section>
 
-    <!-- Portfolio grid -->
-    <section class="portfolio-grid">
-        <div class="portfolio-grid__items">
-            <!-- Project 0 - Large -->
-            <article class="portfolio-item portfolio-item_large">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/0.jpg"
-                        alt="Пентхаус в центре Кемерово">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Интерьер</span>
-                        <h3 class="portfolio-item__title">Пентхаус в центре</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2026</span>
+        <!-- Portfolio grid -->
+        <section class="portfolio-grid">
+            <div class="portfolio-grid__items">
+                <!-- Project 0 - Large -->
+                <article class="portfolio-item portfolio-item_large">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/0.jpg"
+                            alt="Пентхаус в центре Кемерово">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Интерьер</span>
+                            <h3 class="portfolio-item__title">Пентхаус в центре</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2026</span>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Пентхаус в центре города</h4>
-                    <span class="portfolio-item__info-category">Жилой интерьер</span>
-                </div>
-            </article>
-
-            <!-- Project 1 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/1.jpg"
-                        alt="Загородный дом">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Архитектура</span>
-                        <h3 class="portfolio-item__title">Загородный дом</h3>
-                        <span class="portfolio-item__location">п. Берёзовский, 2024</span>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Пентхаус в центре города</h4>
+                        <span class="portfolio-item__info-category">Жилой интерьер</span>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Загородный дом</h4>
-                    <span class="portfolio-item__info-category">Частный дом</span>
-                </div>
-            </article>
+                </article>
 
-            <!-- Project 2 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/2.jpg"
-                        alt="Офисное пространство">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Коммерция</span>
-                        <h3 class="portfolio-item__title">Офис IT-компании</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2023</span>
+                <!-- Project 1 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/1.jpg"
+                            alt="Загородный дом">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Архитектура</span>
+                            <h3 class="portfolio-item__title">Загородный дом</h3>
+                            <span class="portfolio-item__location">п. Берёзовский, 2024</span>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Офис IT-компании</h4>
-                    <span class="portfolio-item__info-category">Коммерческий интерьер</span>
-                </div>
-            </article>
-
-            <!-- Project 3 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/3.jpg"
-                        alt="Ресторан">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Интерьер</span>
-                        <h3 class="portfolio-item__title">Ресторан «Лес»</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2023</span>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Загородный дом</h4>
+                        <span class="portfolio-item__info-category">Частный дом</span>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Ресторан «Лес»</h4>
-                    <span class="portfolio-item__info-category">Ресторанный интерьер</span>
-                </div>
-            </article>
+                </article>
 
-            <!-- Project 4 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/4.jpg"
-                        alt="Квартира-студия">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Интерьер</span>
-                        <h3 class="portfolio-item__title">Квартира-студия</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                <!-- Project 2 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/2.jpg"
+                            alt="Офисное пространство">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Коммерция</span>
+                            <h3 class="portfolio-item__title">Офис IT-компании</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2023</span>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Квартира-студия</h4>
-                    <span class="portfolio-item__info-category">Жилой интерьер</span>
-                </div>
-            </article>
-
-            <!-- Project 5 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/5.jpg"
-                        alt="Салон красоты">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Коммерция</span>
-                        <h3 class="portfolio-item__title">Салон красоты</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Офис IT-компании</h4>
+                        <span class="portfolio-item__info-category">Коммерческий интерьер</span>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Салон красоты</h4>
-                    <span class="portfolio-item__info-category">Коммерческий интерьер</span>
-                </div>
-            </article>
+                </article>
 
-            <!-- Project 6 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/6.jpg"
-                        alt="Дом за городом">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Архитектура</span>
-                        <h3 class="portfolio-item__title">Дом за городом</h3>
-                        <span class="portfolio-item__location">п. Ясногорский, 2023</span>
+                <!-- Project 3 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/3.jpg"
+                            alt="Ресторан">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Интерьер</span>
+                            <h3 class="portfolio-item__title">Ресторан «Лес»</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2023</span>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Дом за городом</h4>
-                    <span class="portfolio-item__info-category">Частный дом</span>
-                </div>
-            </article>
-
-            <!-- Project 7 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/7.jpg"
-                        alt="Аппартаменты">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Интерьер</span>
-                        <h3 class="portfolio-item__title">Апартаменты</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Ресторан «Лес»</h4>
+                        <span class="portfolio-item__info-category">Ресторанный интерьер</span>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Апартаменты</h4>
-                    <span class="portfolio-item__info-category">Жилой интерьер</span>
-                </div>
-            </article>
+                </article>
 
-            <!-- Project 8 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/8.jpg"
-                        alt="Аппартаменты">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Интерьер</span>
-                        <h3 class="portfolio-item__title">Апартаменты</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                <!-- Project 4 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/4.jpg"
+                            alt="Квартира-студия">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Интерьер</span>
+                            <h3 class="portfolio-item__title">Квартира-студия</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Апартаменты</h4>
-                    <span class="portfolio-item__info-category">Жилой интерьер</span>
-                </div>
-            </article>
-
-            <!-- Project 9 - Large -->
-            <article class="portfolio-item portfolio-item_large">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/9.jpg"
-                        alt="Пентхаус в центре Кемерово">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Интерьер</span>
-                        <h3 class="portfolio-item__title">Пентхаус в центре</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2026</span>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Квартира-студия</h4>
+                        <span class="portfolio-item__info-category">Жилой интерьер</span>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Пентхаус в центре города</h4>
-                    <span class="portfolio-item__info-category">Жилой интерьер</span>
-                </div>
-            </article>
+                </article>
 
-            <!-- Project 10 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/10.jpg"
-                        alt="Аппартаменты">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Интерьер</span>
-                        <h3 class="portfolio-item__title">Апартаменты</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                <!-- Project 5 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/5.jpg"
+                            alt="Салон красоты">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Коммерция</span>
+                            <h3 class="portfolio-item__title">Салон красоты</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Апартаменты</h4>
-                    <span class="portfolio-item__info-category">Жилой интерьер</span>
-                </div>
-            </article>
-
-            <!-- Project 11 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/11.jpg"
-                        alt="Аппартаменты">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Интерьер</span>
-                        <h3 class="portfolio-item__title">Апартаменты</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Салон красоты</h4>
+                        <span class="portfolio-item__info-category">Коммерческий интерьер</span>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Апартаменты</h4>
-                    <span class="portfolio-item__info-category">Жилой интерьер</span>
-                </div>
-            </article>
+                </article>
 
-            <!-- Project 12 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/12.jpg"
-                        alt="Аппартаменты">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Интерьер</span>
-                        <h3 class="portfolio-item__title">Апартаменты</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                <!-- Project 6 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/6.jpg"
+                            alt="Дом за городом">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Архитектура</span>
+                            <h3 class="portfolio-item__title">Дом за городом</h3>
+                            <span class="portfolio-item__location">п. Ясногорский, 2023</span>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Апартаменты</h4>
-                    <span class="portfolio-item__info-category">Жилой интерьер</span>
-                </div>
-            </article>
-
-            <!-- Project 13 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/13.jpg"
-                        alt="Аппартаменты">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Интерьер</span>
-                        <h3 class="portfolio-item__title">Апартаменты</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Дом за городом</h4>
+                        <span class="portfolio-item__info-category">Частный дом</span>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Апартаменты</h4>
-                    <span class="portfolio-item__info-category">Жилой интерьер</span>
-                </div>
-            </article>
+                </article>
 
-            <!-- Project 14 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/14.jpg"
-                        alt="Аппартаменты">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Интерьер</span>
-                        <h3 class="portfolio-item__title">Апартаменты</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                <!-- Project 7 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/7.jpg"
+                            alt="Аппартаменты">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Интерьер</span>
+                            <h3 class="portfolio-item__title">Апартаменты</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Апартаменты</h4>
-                    <span class="portfolio-item__info-category">Жилой интерьер</span>
-                </div>
-            </article>
-
-            <!-- Project 15 -->
-            <article class="portfolio-item">
-                <div class="portfolio-item__image-wrapper">
-                    <img class="portfolio-item__image"
-                        src="projects/15.jpg"
-                        alt="Аппартаменты">
-                    <div class="portfolio-item__overlay">
-                        <span class="portfolio-item__category">Интерьер</span>
-                        <h3 class="portfolio-item__title">Апартаменты</h3>
-                        <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Апартаменты</h4>
+                        <span class="portfolio-item__info-category">Жилой интерьер</span>
                     </div>
-                </div>
-                <div class="portfolio-item__info">
-                    <h4 class="portfolio-item__info-title">Апартаменты</h4>
-                    <span class="portfolio-item__info-category">Жилой интерьер</span>
-                </div>
-            </article>
-        </div>
-    </section>
-    
+                </article>
 
-    <div id="rec1813650871" class="r t-rec t-rec_pt_150 t-rec_pb_150"
-        style="padding-top:150px;padding-bottom:150px;background-color:#1c1c1c;" data-record-type="551"
-        data-bg-color="#1c1c1c" data-animationappear="off">
+                <!-- Project 8 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/8.jpg"
+                            alt="Аппартаменты">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Интерьер</span>
+                            <h3 class="portfolio-item__title">Апартаменты</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Апартаменты</h4>
+                        <span class="portfolio-item__info-category">Жилой интерьер</span>
+                    </div>
+                </article>
 
-        <!-- t551 Buttons -->
-        <div style="
-            display:flex;
-            flex-direction:row;
-            gap:14px;
-            justify-content:center;
-            align-items:center;
-            margin-top:18px;
-            flex-wrap:wrap;
-        ">
+                <!-- Project 9 - Large -->
+                <article class="portfolio-item portfolio-item_large">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/9.jpg"
+                            alt="Пентхаус в центре Кемерово">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Интерьер</span>
+                            <h3 class="portfolio-item__title">Пентхаус в центре</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2026</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Пентхаус в центре города</h4>
+                        <span class="portfolio-item__info-category">Жилой интерьер</span>
+                    </div>
+                </article>
 
-            <!-- Rowelltz_arch -->
-            <a
-                href="https://t.me/Rowelltz_arch"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 22px;
-                    font-size:18px;
-                    font-weight:600;
-                    letter-spacing:0.4px;
-                    color:#ffffff;
-                    text-decoration:none;
-                    border-radius:28px;
-                    background:linear-gradient(145deg, #2a2a2a, #151515);
-                    border:1px solid rgba(255,255,255,0.35);
-                    box-shadow:0 6px 18px rgba(0,0,0,0.65);
-                    transition:all 0.25s ease;
-                "
-                onmouseover="
-                    this.style.transform='translateY(-1px)';
-                    this.style.boxShadow='0 10px 26px rgba(0,0,0,0.8)';
-                "
-                onmouseout="
-                    this.style.transform='translateY(0)';
-                    this.style.boxShadow='0 6px 18px rgba(0,0,0,0.65)';
-                "
-            >
-                Telegram канал Rowelltz_arch
-            </a>
+                <!-- Project 10 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/10.jpg"
+                            alt="Аппартаменты">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Интерьер</span>
+                            <h3 class="portfolio-item__title">Апартаменты</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Апартаменты</h4>
+                        <span class="portfolio-item__info-category">Жилой интерьер</span>
+                    </div>
+                </article>
 
-            <!-- Developer -->
-            <a
-                href="https://kwork.ru/website-development/42671859/razrabotka-sayta-pod-klyuch"
-                target="_blank"
-                style="
-                    display:inline-block;
-                    padding:12px 22px;
-                    font-size:18px;
-                    font-weight:600;
-                    letter-spacing:0.4px;
-                    color:#ffffff;
-                    text-decoration:none;
-                    border-radius:28px;
-                    background:linear-gradient(145deg, #2a2a2a, #151515);
-                    border:1px solid rgba(255,255,255,0.35);
-                    box-shadow:0 6px 18px rgba(0,0,0,0.65);
-                    transition:all 0.25s ease;
-                "
-                onmouseover="
-                    this.style.transform='translateY(-1px)';
-                    this.style.boxShadow='0 10px 26px rgba(0,0,0,0.8)';
-                "
-                onmouseout="
-                    this.style.transform='translateY(0)';
-                    this.style.boxShadow='0 6px 18px rgba(0,0,0,0.65)';
-                "
-            >
-                Разработка сайтов под ключ
-            </a>
+                <!-- Project 11 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/11.jpg"
+                            alt="Аппартаменты">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Интерьер</span>
+                            <h3 class="portfolio-item__title">Апартаменты</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Апартаменты</h4>
+                        <span class="portfolio-item__info-category">Жилой интерьер</span>
+                    </div>
+                </article>
 
-        </div>
-    </div>
+                <!-- Project 12 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/12.jpg"
+                            alt="Аппартаменты">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Интерьер</span>
+                            <h3 class="portfolio-item__title">Апартаменты</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Апартаменты</h4>
+                        <span class="portfolio-item__info-category">Жилой интерьер</span>
+                    </div>
+                </article>
 
-    <!-- Portfolio scripts -->
+                <!-- Project 13 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/13.jpg"
+                            alt="Аппартаменты">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Интерьер</span>
+                            <h3 class="portfolio-item__title">Апартаменты</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Апартаменты</h4>
+                        <span class="portfolio-item__info-category">Жилой интерьер</span>
+                    </div>
+                </article>
+
+                <!-- Project 14 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/14.jpg"
+                            alt="Аппартаменты">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Интерьер</span>
+                            <h3 class="portfolio-item__title">Апартаменты</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Апартаменты</h4>
+                        <span class="portfolio-item__info-category">Жилой интерьер</span>
+                    </div>
+                </article>
+
+                <!-- Project 15 -->
+                <article class="portfolio-item">
+                    <div class="portfolio-item__image-wrapper">
+                        <img class="portfolio-item__image"
+                            src="projects/15.jpg"
+                            alt="Аппартаменты">
+                        <div class="portfolio-item__overlay">
+                            <span class="portfolio-item__category">Интерьер</span>
+                            <h3 class="portfolio-item__title">Апартаменты</h3>
+                            <span class="portfolio-item__location">г. Кемерово, 2024</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__info">
+                        <h4 class="portfolio-item__info-title">Апартаменты</h4>
+                        <span class="portfolio-item__info-category">Жилой интерьер</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <footer class="portfolio-footer">
+            <div class="footer-buttons">
+                <a href="https://t.me/Rowelltz_arch" target="_blank" class="footer-btn">
+                    Telegram канал Rowelltz_arch
+                </a>
+                <a href="https://kwork.ru/website-development/42671859/razrabotka-sayta-pod-klyuch" target="_blank" class="footer-btn footer-btn_dev">
+                    Разработка сайтов под ключ
+                </a>
+            </div>
+        </footer>
+    </main>
+
     <script src="js/portfolio.js"></script>
 </body>
-
 </html>

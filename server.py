@@ -30,7 +30,7 @@ app.add_middleware(
 async def send_message(request: Request):
     # We are retrieving data from the request
     data = await request.json()
-    print("Получены данные:", data)
+    print("Получены данные:", data, flush=True)
     
     name = data.get("name", "").strip()
     phone = data.get("phone", "").strip()
