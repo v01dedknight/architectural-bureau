@@ -97,10 +97,10 @@ Header Controller
                         <div class="modal-wrapper">
                             <form id="project-request-form" class="contact-form">
                                 <button type="button" class="contact-form__close">&times;</button>
-                                <label>Имя *: <input type="text" name="name" placeholder="Ваше имя" required></label>
-                                <label>Телефон *: <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></label>
+                                <label>*Имя: <input type="text" name="name" placeholder="Ваше имя" required></label>
+                                <label>*Телефон: <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></label>
                                 <label>E-mail: <input type="email" name="email" placeholder="example@mail.com"></label>
-                                <label>Суть заявки *: <textarea name="message" placeholder="Опишите суть заявки" required></textarea></label>
+                                <label>*Суть заявки: <textarea name="message" placeholder="Опишите суть заявки" required></textarea></label>
                                 <button type="submit">Отправить</button>
                             </form>
                         </div>
@@ -111,20 +111,70 @@ Header Controller
                     // Backend connection
                     form.addEventListener('submit', async (e) => {
                         e.preventDefault();
-                        const payload = {
-                            name: form.name.value.trim(),
-                            phone: form.phone.value.trim(),
-                            email: form.email.value.trim(),
-                            message: form.message.value.trim()
-                        };
+
+                        const name = form.name.value.trim();
+                        const phone = form.phone.value.trim();
+                        const email = form.email.value.trim();
+                        const message = form.message.value.trim();
+
+                        // Validation
+                        if (!name) {
+                            alert('Введите имя');
+                            form.name.focus();
+                            return;
+                        }
+
+                        if (name.length < 2) {
+                            alert('Имя слишком короткое');
+                            form.name.focus();
+                            return;
+                        }
+
+                        if (!phone) {
+                            alert('Введите телефон');
+                            form.phone.focus();
+                            return;
+                        }
+
+                        // Only numbers
+                        const phoneDigits = phone.replace(/\D/g, '');
+
+                        if (phoneDigits.length < 10) {
+                            alert('Введите корректный номер телефона');
+                            form.phone.focus();
+                            return;
+                        }
+
+                        if (email) {
+                            if (!email.includes('@') || !email.includes('.')) {
+                                alert('Введите корректный e-mail');
+                                form.email.focus();
+                                return;
+                            }
+                        }
+
+                        if (!message) {
+                            alert('Введите описание заявки');
+                            form.message.focus();
+                            return;
+                        }
+
+                        if (message.length < 5) {
+                            alert('Описание заявки слишком короткое');
+                            form.message.focus();
+                            return;
+                        }
+
+                        // Sending
+                        const payload = { name, phone, email, message };
 
                         try {
-                            // Check out README.md before deploy on server (PORT 8000)
                             const response = await fetch('http://127.0.0.1:8000/send', {
                                 method: 'POST',
                                 headers: {'Content-Type': 'application/json'},
                                 body: JSON.stringify(payload)
                             });
+
                             const data = await response.json();
 
                             if (data.ok) {
@@ -134,6 +184,7 @@ Header Controller
                             } else {
                                 alert("Ошибка отправки, попробуйте позже");
                             }
+
                         } catch (err) {
                             console.error(err);
                             alert("Ошибка отправки, попробуйте позже");

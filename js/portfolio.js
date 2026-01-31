@@ -74,14 +74,63 @@
 
                     const form = modalContainer.querySelector('.contact-form');
 
+                    // Backend connection
                     form.addEventListener('submit', async (e) => {
                         e.preventDefault();
-                        const payload = {
-                            name: form.name.value.trim(),
-                            phone: form.phone.value.trim(),
-                            email: form.email.value.trim(),
-                            message: form.message.value.trim()
-                        };
+
+                        const name = form.name.value.trim();
+                        const phone = form.phone.value.trim();
+                        const email = form.email.value.trim();
+                        const message = form.message.value.trim();
+
+                        // Validation
+                        if (!name) {
+                            alert('Введите имя');
+                            form.name.focus();
+                            return;
+                        }
+
+                        if (name.length < 2) {
+                            alert('Имя слишком короткое');
+                            form.name.focus();
+                            return;
+                        }
+
+                        if (!phone) {
+                            alert('Введите телефон');
+                            form.phone.focus();
+                            return;
+                        }
+
+                        const phoneDigits = phone.replace(/\D/g, '');
+                        if (phoneDigits.length < 10) {
+                            alert('Введите корректный номер телефона');
+                            form.phone.focus();
+                            return;
+                        }
+
+                        if (email) {
+                            if (!email.includes('@') || !email.includes('.')) {
+                                alert('Введите корректный e-mail');
+                                form.email.focus();
+                                return;
+                            }
+                        }
+
+                        if (!message) {
+                            alert('Введите описание заявки');
+                            form.message.focus();
+                            return;
+                        }
+
+                        if (message.length < 5) {
+                            alert('Описание заявки слишком короткое');
+                            form.message.focus();
+                            return;
+                        }
+
+                        // Sending
+                        const payload = { name, phone, email, message };
 
                         try {
                             const response = await fetch('http://127.0.0.1:8000/send', {
@@ -89,7 +138,9 @@
                                 headers: {'Content-Type': 'application/json'},
                                 body: JSON.stringify(payload)
                             });
+
                             const data = await response.json();
+
                             if (data.ok) {
                                 alert("Заявка отправлена!");
                                 form.reset();
@@ -97,7 +148,9 @@
                             } else {
                                 alert("Ошибка отправки, попробуйте позже");
                             }
+
                         } catch (err) {
+                            console.error(err);
                             alert("Ошибка отправки, попробуйте позже");
                         }
                     });
