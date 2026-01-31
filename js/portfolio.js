@@ -64,10 +64,10 @@
                         <div class="modal-wrapper">
                             <form id="project-request-form" class="contact-form">
                                 <button type="button" class="contact-form__close">&times;</button>
-                                <label>Имя *: <input type="text" name="name" placeholder="Ваше имя" required></label>
-                                <label>Телефон *: <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></label>
+                                <label>*Имя: <input type="text" name="name" placeholder="Ваше имя" required></label>
+                                <label>*Телефон: <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></label>
                                 <label>E-mail: <input type="email" name="email" placeholder="example@mail.com"></label>
-                                <label>Суть заявки *: <textarea name="message" placeholder="Опишите суть заявки" required></textarea></label>
+                                <label>*Суть заявки: <textarea name="message" placeholder="Опишите суть заявки" required></textarea></label>
                                 <button type="submit">Отправить</button>
                             </form>
                         </div>`;

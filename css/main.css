@@ -196,9 +196,15 @@ a {
     animation: scrollArrow 1.7s ease infinite;
 }
 
+/* Scroll arrow */
 @keyframes scrollArrow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-7px); }
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
 }
 
 /* About Section */
@@ -341,7 +347,7 @@ a {
     letter-spacing: 0.4px;
     color: #ffffff;
     text-decoration: none;
-    border-radius: 28px;
+    border-radius: 0px;
     background: linear-gradient(145deg, #2a2a2a, #151515);
     border: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.65);
@@ -374,6 +380,7 @@ a {
     width: 100%;
 }
 
+/* Contact */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -382,7 +389,7 @@ a {
     max-width: 600px;
     background: #1a1a1a;
     padding: 80px 20px 20px 20px;
-    border-radius: 10px;
+    border-radius: 0px;
     border: 2px solid #fff;
     position: relative;
     box-shadow: 0 0 50px rgba(255,255,255,0.05);
@@ -405,7 +412,7 @@ a {
     background: #fff;
     color: #000;
     font-size: 24px;
-    border-radius: 50%;
+    border-radius: 0px;
     border: none;
     cursor: pointer;
     width: 40px;
@@ -430,7 +437,7 @@ a {
     padding: 14px 18px;
     background: #111;
     border: 2px solid #fff;
-    border-radius: 5px;
+    border-radius: 0px;
     color: #fff;
     font-size: 16px;
     outline: none;
@@ -445,6 +452,7 @@ a {
     cursor: pointer;
     border: none;
     transition: 0.3s;
+    letter-spacing: 2px;
 }
 
 .contact-form button[type="submit"]:hover {
@@ -453,12 +461,14 @@ a {
     outline: 2px solid #fff;
 }
 
-/* Responsive Styles */
+/* Mobile adaptive */
 @media (max-width: 1200px) {
+    /* Hero */
     .hero__title {
         font-size: 68px;
     }
 
+    /* About */
     .about__title {
         font-size: 60px;
     }
@@ -467,6 +477,7 @@ a {
         font-size: 22px;
     }
 
+    /* Project */
     .project-card__title {
         font-size: 32px;
     }
@@ -477,10 +488,8 @@ a {
 }
 
 @media (max-width: 960px) {
-    .project-card:hover .project-card__content {
-        transform: none !important;
-        opacity: 0;
-    }
+    /* Project */
+    .project-card:hover .project-card__content { transform: none !important; opacity: 0; }
 
     .project-card__content {
         opacity: 0 !important;
@@ -514,6 +523,7 @@ a {
         height: 400px;
     }
 
+    /* Header */
     .header {
         padding: 0 20px;
     }
@@ -521,7 +531,6 @@ a {
     .header__nav {
         gap: 15px;
     }
-
     .header__btn {
         padding: 10px 18px;
         font-size: 13px;
@@ -529,22 +538,26 @@ a {
 }
 
 @media (max-width: 640px) {
+
+    /* Footer - contacts */
     .portfolio-footer, .contacts {
         padding: 40px 15px;
     }
 
     .footer-buttons, .contacts__buttons {
-        gap: 10px; 
+        gap: 8px;
     }
 
     .footer-btn, .contacts__btn {
-        padding: 10px 18px; 
-        font-size: 15px;    
-        border-radius: 20px; 
-        max-width: 260px;   
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        width: auto;
+        max-width: 240px;
+        padding: 10px 16px;
+        font-size: 14px;
+        border-radius: 0px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
 
+    /* Hero */
     .hero__title {
         font-size: 32px;
     }
@@ -553,6 +566,7 @@ a {
         font-size: 10px;
     }
 
+    /* About */
     .about {
         padding: 120px 0;
     }
@@ -566,6 +580,7 @@ a {
         line-height: 1.4;
     }
 
+    /* Project */
     .project-card__title {
         font-size: 28px;
     }
@@ -574,8 +589,9 @@ a {
         font-size: 18px;
     }
 
+    /* Contacts */
     .contacts {
-        padding: 90px 0;
+        padding: 30px 15px 30px;
     }
 
     .contacts__btn {
@@ -583,70 +599,13 @@ a {
         font-size: 16px;
     }
 
-    .header {
-        height: 64px;
-    }
-
-    .header__logo img {
-        max-width: 100px;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-btn, .contacts__btn {
-        padding: 8px 16px;
-        font-size: 14px;
-        max-width: 220px;
-    }
-
-    .hero__title {
-        font-size: 30px;
-    }
-
-    .contacts__buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .header {
-        height: 60px;
-        padding: 0 10px;
-    }
-
-    .header__logo img {
-        max-width: 115px;
-        height: auto;
-    }
-
-    .header__nav {
-        gap: 6px;
-    }
-
-    .header__btn {
-        padding: 6px 10px;
-        font-size: 10px;
-        letter-spacing: 0;
-    }
-}
-
-
-@media (max-width: 640px) {
     .contact-form {
         width: 95%;
         padding: 60px 15px 20px 15px;
         gap: 15px;
     }
 
-    .header__logo img {
-        height: 30px; 
-    }
-
-    .header {
-        padding: 0 15px;
-    }
-}
-
-@media (max-width: 640px) {
+    /* Header */
     .header {
         height: 64px;
         padding: 0 10px;
@@ -657,9 +616,7 @@ a {
         height: auto;
     }
 
-    .header__nav {
-        gap: 8px;
-    }
+    .header__nav { gap: 8px; }
 
     .header__btn {
         padding: 8px 12px;
@@ -668,13 +625,63 @@ a {
     }
 }
 
-@media (max-width: 380px) {
-    .header__logo img {
-        max-width: 110px;
+@media (max-width: 480px) {
+    /* Footer */
+    .footer-btn, .contacts__btn {
+        max-width: 210px;
+        padding: 8px 14px;
+        font-size: 13px;
+        border-radius: 0px;
     }
+
+    .footer-buttons, .contacts__buttons {
+        gap: 6px;
+    }
+
+    /* Contacts */
+    .contacts__buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Hero */
+    .hero__title {
+        font-size: 30px;
+    }
+
+    /* Header */
+    .header {
+        height: 60px;
+        padding: 0 10px;
+    }
+
+    .header__logo img {
+        max-width: 115px;
+        height: auto;
+    }
+
+    .header__nav { gap: 6px; }
 
     .header__btn {
         padding: 6px 10px;
         font-size: 10px;
+        letter-spacing: 0;
+    }
+}
+
+@media (max-width: 380px) {
+    /* Header */
+    .header__logo img { max-width: 100px; }
+
+    .header__btn {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+
+    /* Footer */
+    .footer-btn, .contacts__btn {
+        padding: 5px 5px;
+        font-size: 13px;
+        border-radius: 0px;
     }
 }

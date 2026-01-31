@@ -1,6 +1,6 @@
-/**
- * Header visibility controller
- * Shows/hides fixed header based on scroll position
+/*
+Header visibility controller
+Shows/hides fixed header based on scroll position
  */
 (function() {
     'use strict';
@@ -49,8 +49,10 @@
     }
 })();
 
-
-/* Modal form handler & Header Controller */
+/*
+Modal form handler
+Header Controller
+*/
 (function() {
     'use strict';
 
@@ -106,7 +108,7 @@
 
                     const form = modalContainer.querySelector('.contact-form');
 
-                    // backend connection
+                    // Backend connection
                     form.addEventListener('submit', async (e) => {
                         e.preventDefault();
                         const payload = {
