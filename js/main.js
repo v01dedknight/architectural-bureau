@@ -1,12 +1,133 @@
-/*
-Header visibility controller
-Shows/hides fixed header based on scroll position
- */
-(function() {
-    'use strict';
+// run after DOM is ready
+t_onReady(function () {
 
-    const header = document.querySelector('.header');
-    const trigger = document.querySelector('.header__trigger');
+    // ------------------------
+    // Initialize T686 modules for multiple IDs
+    t_onFuncLoad('t686_init', function () {
+        t686_init('1813650811');
+        t686_init('1813650831');
+    });
+
+    // Initialize T336 module
+    t_onFuncLoad('t336_init', function () {
+        t336_init('1813650821');
+    });
+
+    // ------------------------
+    // Initialize T446 modules
+    t_onFuncLoad('t446_checkOverflow', function () {
+        function updateOverflow() {
+            t446_checkOverflow('1813650891', '130');
+        }
+
+        window.addEventListener('resize', t_throttle(updateOverflow));
+        window.addEventListener('load', updateOverflow);
+        updateOverflow();
+    });
+
+    t_onFuncLoad('t_menu__interactFromKeyboard', function () {
+        t_menu__interactFromKeyboard('1813650891');
+    });
+
+    t_onFuncLoad('t_menu__highlightActiveLinks', function () {
+        t_menu__highlightActiveLinks('.t446__list_item a');
+    });
+
+    t_onFuncLoad('t_menu__setBGcolor', function () {
+        function updateBG() {
+            t_menu__setBGcolor('1813650891', '.t446');
+        }
+
+        updateBG();
+        window.addEventListener('resize', t_throttle(updateBG));
+    });
+
+    t_onFuncLoad('t446_createMobileMenu', function () {
+        t446_createMobileMenu('1813650891');
+    });
+
+    t_onFuncLoad('t446_init', function () {
+        t446_init('1813650891');
+    });
+
+    // ------------------------
+    // Initialize T686 menu burger
+    t_onFuncLoad('t_menuburger_init', function () {
+        t_menuburger_init('1813650891');
+    });
+
+});
+
+// ------------------------
+// Menu burger function
+function t_menuburger_init(recid) {
+    var rec = document.querySelector('#rec' + recid);
+    if (!rec) return;
+
+    var burger = rec.querySelector('.t-menuburger');
+    if (!burger) return;
+
+    var isSecondStyle = burger.classList.contains('t-menuburger_second');
+
+    // hover effect for non-mobile second style
+    if (isSecondStyle && !window.isMobile && !('ontouchend' in document)) {
+        burger.addEventListener('mouseenter', function () {
+            if (burger.classList.contains('t-menuburger-opened')) return;
+            burger.classList.remove('t-menuburger-unhovered');
+            burger.classList.add('t-menuburger-hovered');
+        });
+        burger.addEventListener('mouseleave', function () {
+            if (burger.classList.contains('t-menuburger-opened')) return;
+            burger.classList.remove('t-menuburger-hovered');
+            burger.classList.add('t-menuburger-unhovered');
+            setTimeout(function () { burger.classList.remove('t-menuburger-unhovered'); }, 300);
+        });
+    }
+
+    // toggle menu on click
+    burger.addEventListener('click', function () {
+        if (!burger.closest('.tmenu-mobile') &&
+            !burger.closest('.t450__burger_container') &&
+            !burger.closest('.t466__container') &&
+            !burger.closest('.t204__burger') &&
+            !burger.closest('.t199__js__menu-toggler')) {
+            burger.classList.toggle('t-menuburger-opened');
+            burger.classList.remove('t-menuburger-unhovered');
+        }
+    });
+
+    var menu = rec.querySelector('[data-menu="yes"]');
+    if (!menu) return;
+
+    var menuLinks = menu.querySelectorAll('.t-menu__link-item');
+    var submenuClassList = [
+        't978__menu-link_hook',
+        't978__tm-link',
+        't966__tm-link',
+        't794__tm-link',
+        't-menusub__target-link'
+    ];
+
+    // close menu when link clicked unless it's a submenu
+    Array.prototype.forEach.call(menuLinks, function (link) {
+        link.addEventListener('click', function () {
+            var isSubmenuHook = submenuClassList.some(function (submenuClass) {
+                return link.classList.contains(submenuClass);
+            });
+            if (isSubmenuHook) return;
+            burger.classList.remove('t-menuburger-opened');
+        });
+    });
+
+    menu.addEventListener('clickedAnchorInTooltipMenu', function () {
+        burger.classList.remove('t-menuburger-opened');
+    });
+}
+
+// Header
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.custom-header');
+    const trigger = document.querySelector('.custom-header__trigger');
     let lastScrollY = window.scrollY;
 
     function updateHeaderVisibility() {
@@ -23,195 +144,134 @@ Shows/hides fixed header based on scroll position
         lastScrollY = currentScrollY;
     }
 
-    function onScroll() {
-        if (!window.ticking) {
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
             window.requestAnimationFrame(function() {
                 updateHeaderVisibility();
-                window.ticking = false;
+                ticking = false;
             });
-            window.ticking = true;
+            ticking = true;
         }
-    }
+    });
 
-    // Initialize
-    if (header && trigger) {
-        window.addEventListener('scroll', onScroll, { passive: true });
+    trigger.addEventListener('mouseenter', function() {
         header.classList.add('visible');
+    });
 
-        // Show header on hover
-        trigger.addEventListener('mouseenter', function() {
-            header.classList.add('visible');
-        });
+    header.addEventListener('mouseenter', function() {
+        header.classList.add('visible');
+    });
 
-        header.addEventListener('mouseenter', function() {
-            header.classList.add('visible');
-        });
-    }
-})();
+    header.classList.add('visible');
+});
 
-/*
-Modal form handler
-Header Controller
-*/
-(function() {
-    'use strict';
 
-    // Hedder controller
-    const header = document.querySelector('.header');
-    let lastScrollY = window.scrollY;
+// Form
+// Button to open the form
+const openBtn = document.getElementById('open-form-btn');
+const modalContainer = document.getElementById('modal-container');
 
-    function updateHeaderVisibility() {
-        const currentScrollY = window.scrollY;
-        if (currentScrollY <= 0) {
-            header.classList.add('visible');
-        } else if (currentScrollY > lastScrollY && currentScrollY > 50) {
-            header.classList.remove('visible');
-        } else if (currentScrollY < lastScrollY) {
-            header.classList.add('visible');
-        }
-        lastScrollY = currentScrollY;
+// Универсальный код для открытия формы на любой странице
+document.addEventListener("DOMContentLoaded", () => {
+    // Находим все кнопки, которые открывают форму
+    const openBtns = document.querySelectorAll('.custom-header__btn--cta');
+    
+    // Создаём контейнер для модального окна, если его нет
+    let modalContainer = document.getElementById('modal-container');
+    if (!modalContainer) {
+        modalContainer = document.createElement('div');
+        modalContainer.id = 'modal-container';
+        document.body.appendChild(modalContainer);
     }
 
-    window.addEventListener('scroll', () => {
-        window.requestAnimationFrame(updateHeaderVisibility);
-    }, { passive: true });
+    // Для каждой кнопки ставим обработчик
+    openBtns.forEach(openBtn => {
+        openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
 
-    // Form logic
-    document.addEventListener("DOMContentLoaded", () => {
-        // Searching for buttons by current class
-        const openBtns = document.querySelectorAll('.header__btn--cta');
-        let modalContainer = document.getElementById('modal-container');
+            // Если форма ещё не создана — создаём
+            if (!modalContainer.innerHTML) {
+                modalContainer.innerHTML = `
+                    <div class="modal-wrapper">
+                        <form id="project-request-form" class="contact-form">
+                            <button type="button" class="contact-form__close">&times;</button>
+                            <label>
+                                Имя *:
+                                <input type="text" name="name" placeholder="Ваше имя" required>
+                            </label>
+                            <label>
+                                Телефон *:
+                                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+                            </label>
+                            <label>
+                                E-mail:
+                                <input type="email" name="email" placeholder="example@mail.com">
+                            </label>
+                            <label>
+                                Суть заявки *:
+                                <textarea name="message" placeholder="Опишите суть заявки" required></textarea>
+                            </label>
+                            <button type="submit">Отправить</button>
+                        </form>
+                        <button type="button" class="contact-form__close">&times;</button>
+                    </div>
+                `;
 
-        if (!modalContainer) {
-            modalContainer = document.createElement('div');
-            modalContainer.id = 'modal-container';
-            document.body.appendChild(modalContainer);
-        }
+                const form = modalContainer.querySelector('.contact-form');
 
-        openBtns.forEach(openBtn => {
-            openBtn.addEventListener('click', (e) => {
-                e.preventDefault();
+                // Обработчик отправки формы
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
 
-                if (!modalContainer.innerHTML) {
-                    modalContainer.innerHTML = `
-                        <div class="modal-wrapper">
-                            <form id="project-request-form" class="contact-form">
-                                <button type="button" class="contact-form__close">&times;</button>
-                                <label>*Имя: <input type="text" name="name" placeholder="Ваше имя" required></label>
-                                <label>*Телефон: <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></label>
-                                <label>E-mail: <input type="email" name="email" placeholder="example@mail.com"></label>
-                                <label>*Суть заявки: <textarea name="message" placeholder="Опишите суть заявки" required></textarea></label>
-                                <button type="submit">Отправить</button>
-                            </form>
-                        </div>
-                    `;
+                    const name = form.name.value.trim();
+                    const phone = form.phone.value.trim();
+                    const email = form.email.value.trim();
+                    const message = form.message.value.trim();
 
-                    const form = modalContainer.querySelector('.contact-form');
+                    try {
+                        const response = await fetch('http://127.0.0.1:8000/send', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify({ name, phone, email, message })
+                        });
+                        const data = await response.json();
 
-                    // Backend connection
-                    form.addEventListener('submit', async (e) => {
-                        e.preventDefault();
-
-                        const name = form.name.value.trim();
-                        const phone = form.phone.value.trim();
-                        const email = form.email.value.trim();
-                        const message = form.message.value.trim();
-
-                        // Validation
-                        if (!name) {
-                            alert('Введите имя');
-                            form.name.focus();
-                            return;
-                        }
-
-                        if (name.length < 2) {
-                            alert('Имя слишком короткое');
-                            form.name.focus();
-                            return;
-                        }
-
-                        if (!phone) {
-                            alert('Введите телефон');
-                            form.phone.focus();
-                            return;
-                        }
-
-                        // Only numbers
-                        const phoneDigits = phone.replace(/\D/g, '');
-
-                        if (phoneDigits.length < 10) {
-                            alert('Введите корректный номер телефона');
-                            form.phone.focus();
-                            return;
-                        }
-
-                        if (email) {
-                            if (!email.includes('@') || !email.includes('.')) {
-                                alert('Введите корректный e-mail');
-                                form.email.focus();
-                                return;
-                            }
-                        }
-
-                        if (!message) {
-                            alert('Введите описание заявки');
-                            form.message.focus();
-                            return;
-                        }
-
-                        if (message.length < 5) {
-                            alert('Описание заявки слишком короткое');
-                            form.message.focus();
-                            return;
-                        }
-
-                        // Sending
-                        const payload = { name, phone, email, message };
-
-                        try {
-                            const response = await fetch('http://127.0.0.1:8000/send', {
-                                method: 'POST',
-                                headers: {'Content-Type': 'application/json'},
-                                body: JSON.stringify(payload)
-                            });
-
-                            const data = await response.json();
-
-                            if (data.ok) {
-                                alert("Заявка отправлена!");
-                                form.reset();
-                                closeModal();
-                            } else {
-                                alert("Ошибка отправки, попробуйте позже");
-                            }
-
-                        } catch (err) {
-                            console.error(err);
+                        if (data.ok) {
+                            alert("Заявка отправлена!");
+                            form.reset();
+                            form.classList.remove('show');
+                            setTimeout(() => modalContainer.style.display = 'none', 400);
+                        } else {
                             alert("Ошибка отправки, попробуйте позже");
                         }
-                    });
-                }
+                    } catch (err) {
+                        console.error(err);
+                        alert("Ошибка отправки, попробуйте позже");
+                    }
+                });
+            }
 
-                openModal();
-            });
-        });
-
-        function openModal() {
+            // Показ модального окна
             modalContainer.style.display = 'flex';
             const form = modalContainer.querySelector('.contact-form');
             setTimeout(() => form.classList.add('show'), 10);
-            
-            // Attaching the closing handler (once when creating or opening)
-            modalContainer.querySelectorAll('.contact-form__close').forEach(btn => {
-                btn.onclick = closeModal;
-            });
-            modalContainer.onclick = (e) => { if (e.target === modalContainer) closeModal(); };
-        }
 
-        function closeModal() {
-            const form = modalContainer.querySelector('.contact-form');
-            if (form) form.classList.remove('show');
-            setTimeout(() => { modalContainer.style.display = 'none'; }, 400);
-        }
+            // Закрытие формы крестиком
+            modalContainer.querySelectorAll('.contact-form__close').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    form.classList.remove('show');
+                    setTimeout(() => modalContainer.style.display = 'none', 400);
+                });
+            });
+
+            // Закрытие при клике по фону
+            modalContainer.addEventListener('click', (e) => {
+                if (e.target === modalContainer) {
+                    form.classList.remove('show');
+                    setTimeout(() => modalContainer.style.display = 'none', 400);
+                }
+            }, { once: true });
+        });
     });
-})();
+});
