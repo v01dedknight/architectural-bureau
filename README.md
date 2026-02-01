@@ -70,9 +70,10 @@ python server.py
 
 ## Продакшен
 
-### Backend работает через systemd unit (rowelltz-api.service) и nginx проксирует /api/send на FastAPI.
-### HTTPS обеспечен сертификатом Let’s Encrypt.
-### Все заявки с сайта отправляются напрямую в Telegram через защищённый backend.
+- Backend работает через systemd unit (rowelltz-api.service) и nginx проксирует /api/send на FastAPI.
+- HTTPS обеспечен сертификатом Let’s Encrypt.
+- Все заявки с сайта отправляются напрямую в Telegram через защищённый backend.
+- Полная мобильная адаптация: сайт удобно использовать на смартфонах и планшетах.
 
 ----
 
