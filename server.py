@@ -5,20 +5,16 @@ from fastapi.responses import JSONResponse
 import httpx
 from dotenv import load_dotenv
 
-
 #
-#   TO LOUNCH, PRINT IT IN CONSOLE    --->    uvicorn server:app --reload
+#   TO LAUNCH:
+#   uvicorn server:app --reload
 #
 
-
-# Loading the token and chat ID from the .env file
 load_dotenv()
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-CHAT_ID = os.getenv("CHAT_ID")
 
 app = FastAPI()
 
-# Enabling CORS for all domains (it can be restricted to specific ones)
+# CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -28,46 +24,59 @@ app.add_middleware(
 
 @app.post("/send")
 async def send_message(request: Request):
-    # Retrieving data from the request
-    data = await request.json()
-    print("Получены данные:", data, flush=True)
-    
-    name = data.get("name", "").strip()
-    phone = data.get("phone", "").strip()
-    email = data.get("email", "").strip()
-    message = data.get("message", "").strip()
+    try:
+        data = await request.json()
+        print("Получены данные:", data, flush=True)
 
-    # Checking required fields
-    if not name or not phone or not message:
-        return JSONResponse({"ok": False, "error": "Не заполнены обязательные поля"}, status_code=400)
+        name = data.get("name", "").strip()
+        phone = data.get("phone", "").strip()
+        email = data.get("email", "").strip()
+        message = data.get("message", "").strip()
 
-    # Creating text for Telegram
-    text = f"Новая заявка:\nИмя: {name}\nТелефон: {phone}\n"
-    if email:
-        text += f"E-mail: {email}\n"
-    text += f"Суть заявки: {message}"
+        # Проверка обязательных полей
+        if not name or not phone or not message:
+            return JSONResponse(
+                {"ok": False, "error": "Не заполнены обязательные поля"},
+                status_code=400
+            )
 
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-    payload = {"chat_id": CHAT_ID, "text": text}
+        # Формирование данных заявки
+        application_data = {
+            "name": name,
+            "phone": phone,
+            "email": email,
+            "message": message
+        }
 
-    # Asynchronous POST request to Telegram
-    async with httpx.AsyncClient(timeout=10) as client:
-        try:
-            resp = await client.post(url, json=payload)
-            resp.raise_for_status()
-            resp_json = resp.json()
-            if not resp_json.get("ok"):
-                return JSONResponse(
-                    {"ok": False, "error": resp_json.get("description", "Unknown error")},
-                    status_code=500
-                )
-            return {"ok": True, "result": resp_json}
-        except httpx.RequestError as e:
-            return JSONResponse({"ok": False, "error": str(e)}, status_code=500)
-        except httpx.HTTPStatusError as e:
-            return JSONResponse({"ok": False, "error": str(e)}, status_code=500)
+        # Отправка в сервис другого разработчика
+        async with httpx.AsyncClient(timeout=10) as client:
+            response = await client.post(
+                "http://localhost:3000/applications",
+                json=application_data
+            )
 
-# Launching the server for development
+        if response.status_code == 201:
+            print("Заявка успешно передана")
+            return {"ok": True, "status": "forwarded"}
+        else:
+            print(f"Ошибка передачи заявки: {response.text}")
+            return JSONResponse(
+                {
+                    "ok": False,
+                    "error": "Ошибка передачи заявки",
+                    "service_response": response.text
+                },
+                status_code=500
+            )
+
+    except Exception as e:
+        print(f"Не удалось отправить заявку: {e}")
+        return JSONResponse(
+            {"ok": False, "error": str(e)},
+            status_code=500
+        )
+
+# Dev launch
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("server:app", host="127.0.0.1", port=8000, reload=True)
