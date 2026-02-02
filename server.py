@@ -45,7 +45,7 @@ async def send_message(request: Request):
             "name": name,
             "phone": phone,
             "email": email,
-            "message": message
+            "info": message
         }
 
         # Отправка в сервис другого разработчика
