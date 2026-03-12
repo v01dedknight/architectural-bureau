@@ -1,20 +1,23 @@
 import os
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-import httpx
 from dotenv import load_dotenv
 
-#
-#   TO LAUNCH:
-#   uvicorn server:app --reload
-#
-
+# Загрузка переменных из .env
 load_dotenv()
 
+# Конфигурация из переменных окружения
+TARGET_EMAIL = os.getenv("TARGET_EMAIL")
+MAIL_RU_PASSWORD = os.getenv("MAIL_RU_PASSWORD")
+
+# Инициализация FastAPI
 app = FastAPI()
 
-# CORS
+# Разрешается CORS для всех источников (можно сузить при необходимости)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -22,61 +25,64 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Отправка письма с данными из формы
 @app.post("/send")
 async def send_message(request: Request):
     try:
         data = await request.json()
-        print("Получены данные:", data, flush=True)
+        print(f"Заявка получена для: {TARGET_EMAIL}", flush=True)
 
         name = data.get("name", "").strip()
         phone = data.get("phone", "").strip()
-        email = data.get("email", "").strip()
-        message = data.get("message", "").strip()
+        email_client = data.get("email", "").strip()
+        message_text = data.get("message", "").strip()
 
-        # Проверка обязательных полей
-        if not name or not phone or not message:
-            return JSONResponse(
-                {"ok": False, "error": "Не заполнены обязательные поля"},
-                status_code=400
-            )
+        if not name or not phone or not message_text:
+            return JSONResponse({"ok": False, "error": "Поля не заполнены"}, status_code=400)
 
-        # Формирование данных заявки
-        application_data = {
-            "name": name,
-            "phone": phone,
-            "email": email,
-            "info": message
-        }
+        # Формировка письма
+        subject = f"SITE: Заявка от {name}"
+        body = f"""
+        <html>
+          <body style="font-family: sans-serif; line-height: 1.6;">
+            <h2 style="background: #333; color: #fff; padding: 10px;">Новая заявка с сайта</h2>
+            <p><strong>Имя:</strong> {name}</p>
+            <p><strong>Телефон:</strong> {phone}</p>
+            <p><strong>Email:</strong> {email_client if email_client else 'не указан'}</p>
+            <p><strong>Сообщение:</strong></p>
+            <div style="border-left: 4px solid #333; padding-left: 10px; font-style: italic;">
+                {message_text}
+            </div>
+          </body>
+        </html>
+        """
 
-        # Отправка в сервис другого разработчика
-        async with httpx.AsyncClient(timeout=10) as client:
-            response = await client.post(
-                "http://localhost:3000/applications",
-                json=application_data
-            )
+        msg = MIMEMultipart()
+        msg['From'] = TARGET_EMAIL
+        msg['To'] = TARGET_EMAIL
+        msg['Subject'] = subject
+        msg.attach(MIMEText(body, 'html'))
 
-        if response.status_code == 201:
-            print("Заявка успешно передана")
-            return {"ok": True, "status": "forwarded"}
-        else:
-            print(f"Ошибка передачи заявки: {response.text}")
-            return JSONResponse(
-                {
-                    "ok": False,
-                    "error": "Ошибка передачи заявки",
-                    "service_response": response.text
-                },
-                status_code=500
-            )
+        # Отправка на почту
+        try:
+            with smtplib.SMTP_SSL('smtp.mail.ru', 465) as server:
+                server.login(TARGET_EMAIL, MAIL_RU_PASSWORD)
+                server.send_message(msg)
+            return {"ok": True}
+            
+        except smtplib.SMTPException as e:
+            print(f"SMTP Error: {e}", flush=True)
+            return JSONResponse({"ok": False, "error": "Email error"}, status_code=500)
 
     except Exception as e:
-        print(f"Не удалось отправить заявку: {e}")
-        return JSONResponse(
-            {"ok": False, "error": str(e)},
-            status_code=500
-        )
+        print(f"Server Error: {e}", flush=True)
+        return JSONResponse({"ok": False, "error": "Server error"}, status_code=500)
 
-# Dev launch
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("server:app", host="127.0.0.1", port=8000, reload=True)
+    # Получение хоста и порта из переменных окружения с дефолтными значениями
+    host = os.getenv("SERVER_HOST", "127.0.0.1")
+    port = int(os.getenv("SERVER_PORT", 8000))
+    
+    print(f"Запуск сервера на http://{host}:{port}")
+    uvicorn.run("server:app", host=host, port=port, reload=True)

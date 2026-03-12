@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
         openBtn.addEventListener('click', (e) => {
             e.preventDefault();
 
-            // Если форма ещё не создана — создаём
+            // Если форма ещё не создана - создаём
             if (!modalContainer.innerHTML) {
                 modalContainer.innerHTML = `
                     <div class="modal-wrapper">
