@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="modal-wrapper">
                         <form id="project-request-form" class="contact-form">
                             <button type="button" class="contact-form__close">&times;</button>
-                            <h3 style="margin-top: 0; margin-bottom: 20px;">Оставить заявку</h3>
                             <label>
                                 Имя *:
                                 <input type="text" name="name" placeholder="Ваше имя" required>
