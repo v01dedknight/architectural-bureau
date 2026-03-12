@@ -2,22 +2,21 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from fastapi import FastAPI, Request
+from typing import Optional
+
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from pydantic import BaseModel, EmailStr
 from dotenv import load_dotenv
 
-# Загрузка переменных из .env
+# Загрузка переменных
 load_dotenv()
 
-# Конфигурация из переменных окружения
 TARGET_EMAIL = os.getenv("TARGET_EMAIL")
 MAIL_RU_PASSWORD = os.getenv("MAIL_RU_PASSWORD")
 
-# Инициализация FastAPI
 app = FastAPI()
 
-# Разрешается CORS для всех источников (можно сузить при необходимости)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -25,64 +24,64 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Отправка письма с данными из формы
+# Модель данных для валидации (FastAPI сам проверит поля)
+class FeedbackForm(BaseModel):
+    name: str
+    phone: str
+    email: Optional[str] = None
+    message: str
+
 @app.post("/send")
-async def send_message(request: Request):
+def send_message(data: FeedbackForm):
+    """
+    Убрали async, чтобы smtplib не блокировал сервер.
+    FastAPI выполнит эту функцию в отдельном потоке (threadpool).
+    """
+    
+    if not TARGET_EMAIL or not MAIL_RU_PASSWORD:
+        print("Ошибка: Не настроены переменные окружения (.env)")
+        raise HTTPException(status_code=500, detail="Server config error")
+
+    # Формируем письмо
+    subject = f"SITE: Заявка от {data.name}"
+    body = f"""
+    <html>
+      <body style="font-family: sans-serif;">
+        <h2>Новая заявка с сайта</h2>
+        <p><strong>Имя:</strong> {data.name}</p>
+        <p><strong>Телефон:</strong> {data.phone}</p>
+        <p><strong>Email:</strong> {data.email or 'не указан'}</p>
+        <p><strong>Сообщение:</strong></p>
+        <div style="border-left: 4px solid #333; padding-left: 10px;">{data.message}</div>
+      </body>
+    </html>
+    """
+
+    msg = MIMEMultipart()
+    msg['From'] = TARGET_EMAIL
+    msg['To'] = TARGET_EMAIL
+    msg['Subject'] = subject
+    msg.attach(MIMEText(body, 'html'))
+
     try:
-        data = await request.json()
-        print(f"Заявка получена для: {TARGET_EMAIL}", flush=True)
-
-        name = data.get("name", "").strip()
-        phone = data.get("phone", "").strip()
-        email_client = data.get("email", "").strip()
-        message_text = data.get("message", "").strip()
-
-        if not name or not phone or not message_text:
-            return JSONResponse({"ok": False, "error": "Поля не заполнены"}, status_code=400)
-
-        # Формировка письма
-        subject = f"SITE: Заявка от {name}"
-        body = f"""
-        <html>
-          <body style="font-family: sans-serif; line-height: 1.6;">
-            <h2 style="background: #333; color: #fff; padding: 10px;">Новая заявка с сайта</h2>
-            <p><strong>Имя:</strong> {name}</p>
-            <p><strong>Телефон:</strong> {phone}</p>
-            <p><strong>Email:</strong> {email_client if email_client else 'не указан'}</p>
-            <p><strong>Сообщение:</strong></p>
-            <div style="border-left: 4px solid #333; padding-left: 10px; font-style: italic;">
-                {message_text}
-            </div>
-          </body>
-        </html>
-        """
-
-        msg = MIMEMultipart()
-        msg['From'] = TARGET_EMAIL
-        msg['To'] = TARGET_EMAIL
-        msg['Subject'] = subject
-        msg.attach(MIMEText(body, 'html'))
-
-        # Отправка на почту
-        try:
-            with smtplib.SMTP_SSL('smtp.mail.ru', 465) as server:
-                server.login(TARGET_EMAIL, MAIL_RU_PASSWORD)
-                server.send_message(msg)
-            return {"ok": True}
+        print(f"Попытка отправки письма на {TARGET_EMAIL}...")
+        
+        # Настройка тайм-аута, чтобы не ждать вечно
+        with smtplib.SMTP_SSL('smtp.mail.ru', 465, timeout=10) as server:
+            server.login(TARGET_EMAIL, MAIL_RU_PASSWORD)
+            server.send_message(msg)
             
-        except smtplib.SMTPException as e:
-            print(f"SMTP Error: {e}", flush=True)
-            return JSONResponse({"ok": False, "error": "Email error"}, status_code=500)
+        print("Письмо успешно отправлено!")
+        return {"ok": True}
 
+    except smtplib.SMTPAuthenticationError:
+        print("Ошибка: Неверный логин или пароль (нужен пароль для приложений!)")
+        return {"ok": False, "error": "Auth error"}
     except Exception as e:
-        print(f"Server Error: {e}", flush=True)
-        return JSONResponse({"ok": False, "error": "Server error"}, status_code=500)
+        print(f"Ошибка при отправке: {type(e).__name__}: {e}")
+        return {"ok": False, "error": str(e)}
 
 if __name__ == "__main__":
     import uvicorn
-    # Получение хоста и порта из переменных окружения с дефолтными значениями
-    host = os.getenv("SERVER_HOST", "127.0.0.1")
-    port = int(os.getenv("SERVER_PORT", 8000))
-    
-    print(f"Запуск сервера на http://{host}:{port}")
-    uvicorn.run("server:app", host=host, port=port, reload=True)
+    # Запуск
+    uvicorn.run(app, host="127.0.0.1", port=8000)
